@@ -51,8 +51,4 @@ public class ProductServiceImp implements ProductService {
 		// TODO Auto-generated method stub
 		return false;
 	}
-	
-	public void setProductDao(ProductDao productDao) {
-		this.productDao = productDao;
-	}
 }

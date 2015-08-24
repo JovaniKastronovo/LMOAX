@@ -45,5 +45,4 @@ public class DepartamentServiceImp implements DepartamentService {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
 }

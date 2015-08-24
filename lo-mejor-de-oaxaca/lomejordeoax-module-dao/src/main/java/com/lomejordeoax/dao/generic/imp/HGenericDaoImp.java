@@ -15,6 +15,7 @@ public class HGenericDaoImp<Entity, PK extends Serializable> implements
 
 	@Autowired
 	private HibernateTemplate hibernateTemplate;
+	
 	private Class<Entity> domainClass;
 	
 	@SuppressWarnings("unchecked")

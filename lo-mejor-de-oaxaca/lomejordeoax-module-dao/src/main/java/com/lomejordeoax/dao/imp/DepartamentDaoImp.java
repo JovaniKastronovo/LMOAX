@@ -3,10 +3,11 @@ package com.lomejordeoax.dao.imp;
 import org.lomejordeoax.model.product.Departament;
 import org.springframework.stereotype.Repository;
 
+import com.lomejordeoax.dao.DepartamentDao;
 import com.lomejordeoax.dao.generic.imp.HGenericDaoImp;
 
 @Repository("deptoDao")
-public class DepartamentDaoImp extends HGenericDaoImp<Departament, Integer>{
+public class DepartamentDaoImp extends HGenericDaoImp<Departament, Integer> implements DepartamentDao{
 	
 
 }
