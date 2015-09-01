@@ -51,8 +51,8 @@ public class DepartamentServiceImp implements DepartamentService {
 			Departament dep= deptoDao.find(deptoId);
 			return dep;
 		} catch (DataException e) {
-			logger.error("Departament "+deptoId+" not foud",e);
-			throw new BusinessException("Error updating departament",e);
+			logger.error("Departament "+deptoId+" not found",e);
+			throw new BusinessException("Departament no found",e);
 		}		
 	}
 
@@ -70,6 +70,7 @@ public class DepartamentServiceImp implements DepartamentService {
 		}
 	}
 
+	@Transactional(readOnly = true)
 	@Override
 	public List<Departament> findAllDepto() throws BusinessException {
 		try {

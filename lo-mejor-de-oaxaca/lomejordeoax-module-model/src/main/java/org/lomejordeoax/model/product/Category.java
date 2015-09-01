@@ -33,7 +33,7 @@ public class Category implements Serializable {
 	@JoinColumn(name="departament_id")
 	private Departament departament;
 	
-	@OneToMany(mappedBy="category",cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="category",cascade = CascadeType.ALL)
 	private List<Product> products;
 		
 	public Integer getCategory_id() {
@@ -71,7 +71,7 @@ public class Category implements Serializable {
 	public String toString() {
 		return "Category [prod_category_id=" + category_id
 				+ ", description=" + description + ", picture=" + picture
-				+ ", departament=" + departament + ", products=" + products
+				+ ", departament=" + departament + ", products.size()=" + (products!=null?products.size():null)
 				+ "]";
 	}	
 	

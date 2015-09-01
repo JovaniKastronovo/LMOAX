@@ -11,6 +11,7 @@ import org.lomejordeoax.utilities.exceptions.BusinessException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.lomejordeoax.service.DepartamentService;
 
@@ -27,8 +28,8 @@ public class DepartamentServTest {
 		departament = new Departament();
 	}
 	
-	/*@Test
-	public void testDepartament() throws BusinessException{	
+	@Test
+	public void testNewDeparto() throws BusinessException{	
 		createNewDeptoInst();
 		deptoService.saveNewDepartament(departament);
 		Assert.assertNotNull(departament);
@@ -45,19 +46,28 @@ public class DepartamentServTest {
 	}
 	
 	@Test
+	@Transactional(readOnly = true)
 	public void findDeptobyId() throws BusinessException{
-	   Departament depto = deptoService.findDeptoById(1);
-	   Assert.assertNotNull("Departamente 1 not found", depto);
+	   Departament depto = deptoService.findDeptoById(6);
+	   Assert.assertNotNull("Departament 6 not found", depto);
 	   Assert.assertNotNull(depto.getDepartament_id());
-	   Assert.assertTrue(depto.getDepartament_id().equals(1));
+	   Assert.assertTrue(depto.getDepartament_id().equals(6));
 	   System.out.println(depto.toString());
-	}*/
+	}
 	
 	@Test
+	@Transactional(readOnly = true)
 	public void findAllDepto() throws BusinessException{
 		 List<Departament> deptos= deptoService.findAllDepto();
 		 Assert.assertNotNull(deptos);
+		 Assert.assertTrue(!deptos.isEmpty());
 		 System.out.println(deptos.toString());
+	}
+	
+	@Test
+	public void deleteDepto() throws BusinessException{
+		boolean result=deptoService.deleteDepto(8);
+		Assert.assertTrue(result);
 	}
 	
 	private void createNewDeptoInst(){

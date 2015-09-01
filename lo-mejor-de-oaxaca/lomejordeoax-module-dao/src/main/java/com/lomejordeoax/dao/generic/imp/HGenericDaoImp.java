@@ -46,9 +46,8 @@ public class HGenericDaoImp<Entity, PK extends Serializable> implements
 	@SuppressWarnings("unchecked")
 	@Transactional(readOnly = true)
 	public List<Entity> findAll(){
-		String hql="from "+domainClass.getSimpleName();
 		return (List<Entity>) getHibernateTemplate()
-					.find(hql, domainClass);
+					.find("from "+domainClass.getSimpleName());
 	}
 
 	@Override
