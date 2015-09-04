@@ -33,22 +33,45 @@ public class ProductServiceImp implements ProductService {
 
 	@Override
 	public void saveProduct(Product newProduct)throws BusinessException{
+		try {
+			productDao.save(newProduct);
+		} catch (DataException e) {
+			logger.error("Error saving product="+e.getMessage(),e);
+			throw new BusinessException(e.getMessage());
+		}
 	}
 
 	@Override
 	public void updateProduct(Product updProduct)throws BusinessException{
-		
+		try {
+			productDao.update(updProduct);
+		} catch (DataException e) {
+			logger.error("Error saving product="+e.getMessage(),e);
+			throw new BusinessException(e.getMessage());
+		}
 	}
 
 	@Override
 	public Product findProductById(String productId)throws BusinessException{
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			Product product= productDao.find(productId);
+			return product;
+		} catch (Exception e) {
+			logger.error("Product "+productId+" not found",e);
+			throw new BusinessException("Product no found",e);
+		}
 	}
 
 	@Override
 	public boolean deleteProduct(String productId)throws BusinessException{
-		// TODO Auto-generated method stub
-		return false;
+		Product product = new Product();
+		product.setProduct_id(productId);
+		try {
+			productDao.delete(product);
+			return true;
+		} catch (DataException e) {
+			logger.error("deleteProduct()-The remove process failed",e);
+			throw new BusinessException("Error deleting product with id ="+productId,e);
+		}
 	}
 }
