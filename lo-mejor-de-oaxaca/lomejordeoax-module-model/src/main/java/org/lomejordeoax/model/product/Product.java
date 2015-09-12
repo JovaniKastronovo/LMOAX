@@ -45,7 +45,9 @@ public class Product implements Serializable {
 	private Date created_date;	
 	@Column
 	@Temporal(TemporalType.DATE)
-	private Date modification_date;	
+	private Date modification_date;		
+	@Column
+	private int status_id;
 	
 	@ManyToOne
 	@JoinColumn(name="category_id")
@@ -136,6 +138,12 @@ public class Product implements Serializable {
 	}
 	public void setModification_date(Date modification_date) {
 		this.modification_date = modification_date;
+	}	
+	public int getStatus_id() {
+		return status_id;
+	}
+	public void setStatus_id(int status_id) {
+		this.status_id = status_id;
 	}
 	public Category getCategory() {
 		return category;

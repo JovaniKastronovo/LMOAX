@@ -6,6 +6,7 @@ import org.lomejordeoax.utilities.exceptions.BusinessException;
 import org.lomejordeoax.utilities.exceptions.DataException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.lomejordeoax.dao.ProductDao;
 import com.lomejordeoax.service.ProductService;
@@ -31,6 +32,7 @@ public class ProductServiceImp implements ProductService {
 		}		
 	}
 
+	@Transactional
 	@Override
 	public void saveProduct(Product newProduct)throws BusinessException{
 		try {
@@ -41,6 +43,7 @@ public class ProductServiceImp implements ProductService {
 		}
 	}
 
+	@Transactional
 	@Override
 	public void updateProduct(Product updProduct)throws BusinessException{
 		try {
@@ -51,6 +54,7 @@ public class ProductServiceImp implements ProductService {
 		}
 	}
 
+	@Transactional(readOnly = true)
 	@Override
 	public Product findProductById(String productId)throws BusinessException{
 		try {

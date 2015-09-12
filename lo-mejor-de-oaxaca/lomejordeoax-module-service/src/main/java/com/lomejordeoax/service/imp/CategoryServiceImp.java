@@ -51,7 +51,7 @@ public class CategoryServiceImp implements CategoryService {
 			return cat;
 		} catch (DataException e) {
 			logger.error("Category "+catId+" not found",e);
-			throw new BusinessException("Error updating category",e);
+			throw new BusinessException("Category "+catId+" not found",e);
 		}
 	}
 

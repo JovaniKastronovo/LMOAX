@@ -113,8 +113,8 @@ public class UnitMeasure implements Serializable {
 				+ ", unit_measure=" + unit_measure + ", description="
 				+ description + ", abbreviation=" + abbreviation
 				+ ", created_date=" + created_date + ", modification_date="
-				+ modification_date + ", prodUnitSale=" + prodUnitSale
-				+ ", prodUnitBuy=" + prodUnitBuy + "]";
+				+ modification_date + ", prodUnitSale=" + (prodUnitSale!=null?prodUnitSale.size():null)
+				+ ", prodUnitBuy=" + (prodUnitBuy!=null?prodUnitBuy.size():null) + "]";
 	}	
 	
 }
