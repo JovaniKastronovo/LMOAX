@@ -1,5 +1,7 @@
 package com.lomejordeoax.service.imp;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.lomejordeoax.model.product.Product;
 import org.lomejordeoax.utilities.exceptions.BusinessException;
@@ -76,6 +78,17 @@ public class ProductServiceImp implements ProductService {
 		} catch (DataException e) {
 			logger.error("deleteProduct()-The remove process failed",e);
 			throw new BusinessException("Error deleting product with id ="+productId,e);
+		}
+	}
+
+	@Transactional(readOnly = true)
+	@Override
+	public List<Product> findAllProduct() throws BusinessException {
+		try {
+			List<Product> products= productDao.findAll();
+			return products;
+		} catch (DataException e) {
+			throw new BusinessException("The findAllProduct failed",e);
 		}
 	}
 }
