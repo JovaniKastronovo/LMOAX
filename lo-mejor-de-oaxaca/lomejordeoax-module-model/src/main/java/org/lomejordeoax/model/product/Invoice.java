@@ -13,6 +13,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.lomejordeoax.model.sales.Sales;
+
 @Entity
 @Table(name="ta_invoice")
 public class Invoice implements Serializable {

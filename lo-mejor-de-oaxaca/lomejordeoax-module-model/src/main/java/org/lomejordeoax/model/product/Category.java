@@ -1,9 +1,7 @@
 package org.lomejordeoax.model.product;
 
 import java.io.Serializable;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,7 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -21,21 +18,20 @@ public class Category implements Serializable {
 	private static final long serialVersionUID = -243174998100310543L;
 	
 	@Id
-	@Column(name = "prod_category_id")
+	@Column
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer category_id;
 	@Column
 	private String description;
 	@Column
 	private String picture;
+	@Column
+	private Integer company_id;
 	
 	@ManyToOne
 	@JoinColumn(name="departament_id")
 	private Departament departament;
-	
-	@OneToMany(mappedBy="category",cascade = CascadeType.ALL)
-	private List<Product> products;
-		
+			
 	public Integer getCategory_id() {
 		return category_id;
 	}
@@ -54,12 +50,6 @@ public class Category implements Serializable {
 	public void setPicture(String picture) {
 		this.picture = picture;
 	}
-	public List<Product> getProducts() {
-		return products;
-	}
-	public void setProducts(List<Product> products) {
-		this.products = products;
-	}
 	public Departament getDepartament() {
 		return departament;
 	}
@@ -67,12 +57,18 @@ public class Category implements Serializable {
 		this.departament = departament;
 	}
 	
+	public Integer getCompany_id() {
+		return company_id;
+	}
+	public void setCompany_id(Integer company_id) {
+		this.company_id = company_id;
+	}
+	
 	@Override
 	public String toString() {
-		return "Category [prod_category_id=" + category_id
-				+ ", description=" + description + ", picture=" + picture
-				+ ", departament=" + departament + ", products.size()=" + (products!=null?products.size():null)
-				+ "]";
-	}	
+		return "Category [category_id=" + category_id + ", description="
+				+ description + ", picture=" + picture + ", company_id="
+				+ company_id + ", departament=" + departament + "]";
+	}
 	
 }
