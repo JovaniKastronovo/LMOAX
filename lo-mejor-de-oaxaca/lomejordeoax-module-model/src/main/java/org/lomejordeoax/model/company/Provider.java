@@ -1,4 +1,4 @@
-package org.lomejordeoax.model.provider;
+package org.lomejordeoax.model.company;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "ct_provider")
@@ -17,7 +19,6 @@ public class Provider implements Serializable {
 	private static final long serialVersionUID = -3898973430155944181L;
 	
 	@Id
-	@Column
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer provider_id;
 	@Column
@@ -35,8 +36,10 @@ public class Provider implements Serializable {
 	@Column
 	private String commercial_business;
 	@Column
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date created_date;
 	@Column
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date modification_date;
 	@Column
 	private Integer status_id;

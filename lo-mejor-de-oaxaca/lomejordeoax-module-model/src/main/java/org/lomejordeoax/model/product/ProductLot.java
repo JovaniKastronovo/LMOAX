@@ -4,14 +4,21 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
+@Entity
+@Table(name = "ta_product_lot")
 public class ProductLot implements Serializable {
 
 	private static final long serialVersionUID = 1773630571898137910L;
 	
-	@Column
+	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer product_lot_it;
 	@Column
@@ -26,6 +33,12 @@ public class ProductLot implements Serializable {
 	private Date date_of_manufacture;
 	@Column
 	private Date expiration_date;
+	@Column
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date created_date;	
+	@Column
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date modification_date;	
 	
 	public Integer getProduct_lot_it() {
 		return product_lot_it;
@@ -69,6 +82,18 @@ public class ProductLot implements Serializable {
 	public void setExpiration_date(Date expiration_date) {
 		this.expiration_date = expiration_date;
 	}
+	public Date getCreated_date() {
+		return created_date;
+	}
+	public void setCreated_date(Date created_date) {
+		this.created_date = created_date;
+	}
+	public Date getModification_date() {
+		return modification_date;
+	}
+	public void setModification_date(Date modification_date) {
+		this.modification_date = modification_date;
+	}
 	
 	@Override
 	public String toString() {
@@ -76,7 +101,9 @@ public class ProductLot implements Serializable {
 				+ product_id + ", lot=" + lot + ", initial_stock="
 				+ initial_stock + ", current_stock=" + current_stock
 				+ ", date_of_manufacture=" + date_of_manufacture
-				+ ", expiration_date=" + expiration_date + "]";
+				+ ", expiration_date=" + expiration_date + ", created_date="
+				+ created_date + ", modification_date=" + modification_date
+				+ "]";
 	}	
 
 }

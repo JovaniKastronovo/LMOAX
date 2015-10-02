@@ -8,37 +8,46 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "ta_product_photos")
-public class ProductPhotos implements Serializable {
+@Table(name = "ta_promo_product")
+public class PromoProduct implements Serializable {
 
-	private static final long serialVersionUID = -7434545191332465491L;
+	private static final long serialVersionUID = 574390355079445419L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer product_photos_id;
+	private Integer promo_product_id;
+	@ManyToOne
+	@JoinColumn(name = "promotion_id")
+	private Promotions promotions;
 	@Column
 	private String product_id;
 	@Column
-	private String path;
-	@Column
-	private Integer status_id;
+	private int quantity;
 	@Column
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date created_date;	
 	@Column
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date modification_date;	
+	private Date modification_date;
 	
-	public Integer getProduct_photos_id() {
-		return product_photos_id;
+	public Integer getPromo_product_id() {
+		return promo_product_id;
 	}
-	public void setProduct_photos_id(Integer product_photos_id) {
-		this.product_photos_id = product_photos_id;
+	public void setPromo_product_id(Integer promo_product_id) {
+		this.promo_product_id = promo_product_id;
+	}
+	public Promotions getPromotions() {
+		return promotions;
+	}
+	public void setPromotions(Promotions promotions) {
+		this.promotions = promotions;
 	}
 	public String getProduct_id() {
 		return product_id;
@@ -46,17 +55,11 @@ public class ProductPhotos implements Serializable {
 	public void setProduct_id(String product_id) {
 		this.product_id = product_id;
 	}
-	public String getPath() {
-		return path;
+	public int getQuantity() {
+		return quantity;
 	}
-	public void setPath(String path) {
-		this.path = path;
-	}
-	public Integer getStatus_id() {
-		return status_id;
-	}
-	public void setStatus_id(Integer status_id) {
-		this.status_id = status_id;
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 	public Date getCreated_date() {
 		return created_date;
@@ -73,10 +76,10 @@ public class ProductPhotos implements Serializable {
 	
 	@Override
 	public String toString() {
-		return "ProductPhotos [product_photos_id=" + product_photos_id
-				+ ", product_id=" + product_id + ", path=" + path
-				+ ", status_id=" + status_id + ", created_date=" + created_date
+		return "PromoProduct [promo_product_id=" + promo_product_id
+				+ ", promotions=" + promotions + ", product_id=" + product_id
+				+ ", quantity=" + quantity + ", created_date=" + created_date
 				+ ", modification_date=" + modification_date + "]";
-	}
+	}	
 	
 }

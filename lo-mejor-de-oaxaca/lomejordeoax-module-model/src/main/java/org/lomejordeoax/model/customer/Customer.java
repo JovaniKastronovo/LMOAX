@@ -1,6 +1,7 @@
 package org.lomejordeoax.model.customer;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "ta_customer")
@@ -16,7 +19,6 @@ public class Customer implements Serializable {
 	private static final long serialVersionUID = 4307585101753877117L;
 	
 	@Id
-	@Column
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer customer_id;
 	@Column
@@ -48,9 +50,17 @@ public class Customer implements Serializable {
 	@Column
 	private Integer employee_id;
 	@Column
+	private Integer status_id;
+	@Column
 	private Integer company_id;
 	@Column
-	private Integer sale_price_id;
+	private Integer sale_price_id;	
+	@Column
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date created_date;
+	@Column
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date modification_date;
 	
 	public Integer getCustomer_id() {
 		return customer_id;
@@ -154,6 +164,24 @@ public class Customer implements Serializable {
 	public void setSale_price_id(Integer sale_price_id) {
 		this.sale_price_id = sale_price_id;
 	}
+	public Date getCreated_date() {
+		return created_date;
+	}
+	public void setCreated_date(Date created_date) {
+		this.created_date = created_date;
+	}
+	public Date getModification_date() {
+		return modification_date;
+	}
+	public void setModification_date(Date modification_date) {
+		this.modification_date = modification_date;
+	}
+	public Integer getStatus_id() {
+		return status_id;
+	}
+	public void setStatus_id(Integer status_id) {
+		this.status_id = status_id;
+	}
 	
 	@Override
 	public String toString() {
@@ -170,8 +198,12 @@ public class Customer implements Serializable {
 				.append(", credit_limit=").append(credit_limit)
 				.append(", credit_days=").append(credit_days)
 				.append(", employee_id=").append(employee_id)
+				.append(", status_id=").append(status_id)
 				.append(", company_id=").append(company_id)
-				.append(", sale_price_id=").append(sale_price_id).append("]");
+				.append(", sale_price_id=").append(sale_price_id)
+				.append(", created_date=").append(created_date)
+				.append(", modification_date=").append(modification_date)
+				.append("]");
 		return builder.toString();
 	}
 	

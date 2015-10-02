@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "ta_company")
@@ -17,7 +19,6 @@ public class Company implements Serializable {
 	private static final long serialVersionUID = -7320561403785894577L;
 	
 	@Id
-	@Column
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer company_id;
 	@Column
@@ -35,8 +36,10 @@ public class Company implements Serializable {
 	@Column
 	private String commercial_business;
 	@Column
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date created_date;
 	@Column
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date modification_date;
 	
 	public Integer getCompany_id() {
@@ -98,7 +101,16 @@ public class Company implements Serializable {
 	}
 	public void setModification_date(Date modification_date) {
 		this.modification_date = modification_date;
-	}	
+	}
 	
+	@Override
+	public String toString() {
+		return "Company [company_id=" + company_id + ", company_name="
+				+ company_name + ", rfc=" + rfc + ", email=" + email + ", fax="
+				+ fax + ", web_site=" + web_site + ", logo=" + logo
+				+ ", commercial_business=" + commercial_business
+				+ ", created_date=" + created_date + ", modification_date="
+				+ modification_date + "]";
+	}		
 
 }

@@ -1,12 +1,16 @@
 package org.lomejordeoax.model.taxes;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "ct_taxes")
@@ -14,7 +18,7 @@ public class Taxes implements Serializable {
 
 	private static final long serialVersionUID = 351706722087814127L;
 	
-	@Column
+	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer tax_id;
 	@Column
@@ -35,6 +39,13 @@ public class Taxes implements Serializable {
 	private int applying_iva;
 	@Column
 	private Integer company_id;
+	@Column
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date created_date;	
+	@Column
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date modification_date;	
+	
 	public Integer getTax_id() {
 		return tax_id;
 	}
@@ -95,15 +106,34 @@ public class Taxes implements Serializable {
 	public void setCompany_id(Integer company_id) {
 		this.company_id = company_id;
 	}
+	public Date getCreated_date() {
+		return created_date;
+	}
+	public void setCreated_date(Date created_date) {
+		this.created_date = created_date;
+	}
+	public Date getModification_date() {
+		return modification_date;
+	}
+	public void setModification_date(Date modification_date) {
+		this.modification_date = modification_date;
+	}
 	
 	@Override
 	public String toString() {
-		return "Taxes [tax_id=" + tax_id + ", name=" + name + ", description="
-				+ description + ", percentage=" + percentage + ", print="
-				+ print + ", local_tax=" + local_tax + ", transferred="
-				+ transferred + ", retained=" + retained + ", applying_iva="
-				+ applying_iva + ", company_id=" + company_id + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("Taxes [tax_id=").append(tax_id).append(", name=")
+				.append(name).append(", description=").append(description)
+				.append(", percentage=").append(percentage).append(", print=")
+				.append(print).append(", local_tax=").append(local_tax)
+				.append(", transferred=").append(transferred)
+				.append(", retained=").append(retained)
+				.append(", applying_iva=").append(applying_iva)
+				.append(", company_id=").append(company_id)
+				.append(", created_date=").append(created_date)
+				.append(", modification_date=").append(modification_date)
+				.append("]");
+		return builder.toString();
 	}
-
 	
 }

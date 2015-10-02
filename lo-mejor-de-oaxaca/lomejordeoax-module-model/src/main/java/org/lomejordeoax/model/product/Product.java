@@ -41,10 +41,10 @@ public class Product implements Serializable {
 	@Column
 	private int granel;
 	@Column
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date created_date;	
 	@Column
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date modification_date;		
 	@Column
 	private int status_id;

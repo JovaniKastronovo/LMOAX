@@ -1,4 +1,4 @@
-package org.lomejordeoax.model.product;
+package org.lomejordeoax.model.status;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -13,82 +13,62 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name="ct_unit_measure")
-public class UnitMeasure implements Serializable {
+@Table(name = "ct_status_category")
+public class StatusCategory implements Serializable {
 
-	private static final long serialVersionUID = 7743182134652357337L;
+	private static final long serialVersionUID = 566429664691795450L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer unit_measure_id;
+	private Integer category_status_id;
 	@Column
-	private String unit_measure;
+	private String name;
 	@Column
 	private String description;
-	@Column
-	private String abbreviation;
 	@Column
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date created_date;	
 	@Column
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date modification_date;	
+	private Date modification_date;
 	
-	public Integer getUnit_measure_id() {
-		return unit_measure_id;
+	public Integer getCategory_status_id() {
+		return category_status_id;
 	}
-
-	public void setUnit_measure_id(Integer unit_measure_id) {
-		this.unit_measure_id = unit_measure_id;
+	public void setCategory_status_id(Integer category_status_id) {
+		this.category_status_id = category_status_id;
 	}
-
-	public String getUnit_measure() {
-		return unit_measure;
+	public String getName() {
+		return name;
 	}
-
-	public void setUnit_measure(String unit_measure) {
-		this.unit_measure = unit_measure;
+	public void setName(String name) {
+		this.name = name;
 	}
-
 	public String getDescription() {
 		return description;
 	}
-
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
-	public String getAbbreviation() {
-		return abbreviation;
-	}
-
-	public void setAbbreviation(String abbreviation) {
-		this.abbreviation = abbreviation;
-	}
-
 	public Date getCreated_date() {
 		return created_date;
 	}
-
 	public void setCreated_date(Date created_date) {
 		this.created_date = created_date;
 	}
-
 	public Date getModification_date() {
 		return modification_date;
 	}
-
 	public void setModification_date(Date modification_date) {
 		this.modification_date = modification_date;
 	}
-
+	
 	@Override
 	public String toString() {
-		return "UnitMeasure [unit_measure_id=" + unit_measure_id
-				+ ", unit_measure=" + unit_measure + ", description="
-				+ description + ", abbreviation=" + abbreviation
+		return "StatusCategory [category_status_id=" + category_status_id
+				+ ", name=" + name + ", description=" + description
 				+ ", created_date=" + created_date + ", modification_date="
 				+ modification_date + "]";
-	}		
-	
+	}	
+
 }

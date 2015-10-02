@@ -1,4 +1,4 @@
-package org.lomejordeoax.model.sales;
+package org.lomejordeoax.model.status;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -13,34 +13,38 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "ct_type_of_currency")
-public class TypeOfCurrency implements Serializable {
+@Table(name = "ct_status")
+public class Status implements Serializable {
 
-	private static final long serialVersionUID = -4342540045467587242L;
-
+	private static final long serialVersionUID = -374653760766887580L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer type_of_currency_id;
+	private Integer status_id;
+	@Column
+	private Integer status_category_id;
 	@Column
 	private String name;
 	@Column
 	private String description;
 	@Column
-	private Double default_exchange_rate;
-	@Column
-	private Integer company_id;
-	@Column
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date created_date;	
 	@Column
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date modification_date;	
+	private Date modification_date;
 	
-	public Integer getType_of_currency_id() {
-		return type_of_currency_id;
+	public Integer getStatus_id() {
+		return status_id;
 	}
-	public void setType_of_currency_id(Integer type_of_currency_id) {
-		this.type_of_currency_id = type_of_currency_id;
+	public void setStatus_id(Integer status_id) {
+		this.status_id = status_id;
+	}
+	public Integer getStatus_category_id() {
+		return status_category_id;
+	}
+	public void setStatus_category_id(Integer status_category_id) {
+		this.status_category_id = status_category_id;
 	}
 	public String getName() {
 		return name;
@@ -53,18 +57,6 @@ public class TypeOfCurrency implements Serializable {
 	}
 	public void setDescription(String description) {
 		this.description = description;
-	}
-	public Double getDefault_exchange_rate() {
-		return default_exchange_rate;
-	}
-	public void setDefault_exchange_rate(Double default_exchange_rate) {
-		this.default_exchange_rate = default_exchange_rate;
-	}
-	public Integer getCompany_id() {
-		return company_id;
-	}
-	public void setCompany_id(Integer company_id) {
-		this.company_id = company_id;
 	}
 	public Date getCreated_date() {
 		return created_date;
@@ -81,12 +73,10 @@ public class TypeOfCurrency implements Serializable {
 	
 	@Override
 	public String toString() {
-		return "TypeOfCurrency [type_of_currency_id=" + type_of_currency_id
-				+ ", name=" + name + ", description=" + description
-				+ ", default_exchange_rate=" + default_exchange_rate
-				+ ", company_id=" + company_id + ", created_date="
-				+ created_date + ", modification_date=" + modification_date
-				+ "]";
-	}	
-	
+		return "Status [status_id=" + status_id + ", status_category_id="
+				+ status_category_id + ", name=" + name + ", description="
+				+ description + ", created_date=" + created_date
+				+ ", modification_date=" + modification_date + "]";
+	}		
+
 }

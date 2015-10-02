@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "ta_sale")
@@ -28,11 +30,13 @@ public class Sales implements Serializable {
 	@Column
 	private Integer sucursal_id;
 	@Column
-	private Date created_date;
-	@Column
 	private Date delivery_date;
 	@Column
-	private Date modification_date;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date created_date;	
+	@Column
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date modification_date;	
 	@Column
 	private MethodOfPayment methodOfPayment;
 	@Column

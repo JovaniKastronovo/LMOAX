@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -21,13 +22,13 @@ public class Invoice implements Serializable {
 
 	private static final long serialVersionUID = 113784486723504826L;
 
-	@Column
+	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer invoice_id;
 	@Column
 	private Date invoice_date;
 	@Column
-	private int status_id;
+	private Integer status_id;
 	@Column
 	private String folio_fiscal;
 	@Column
@@ -50,6 +51,13 @@ public class Invoice implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="sale_id")
 	private Sales sale;
+	
+	@Column
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date created_date;
+	@Column
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date modification_date;
 
 	public Integer getInvoice_id() {
 		return invoice_id;
@@ -147,35 +155,44 @@ public class Invoice implements Serializable {
 		this.sale = sale;
 	}
 
+	public Date getCreated_date() {
+		return created_date;
+	}
+
+	public void setCreated_date(Date created_date) {
+		this.created_date = created_date;
+	}
+
+	public Date getModification_date() {
+		return modification_date;
+	}
+
+	public void setModification_date(Date modification_date) {
+		this.modification_date = modification_date;
+	}
+
+	public void setStatus_id(Integer status_id) {
+		this.status_id = status_id;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Invoice [invoice_id=");
-		builder.append(invoice_id);
-		builder.append(", invoice_date=");
-		builder.append(invoice_date);
-		builder.append(", status_id=");
-		builder.append(status_id);
-		builder.append(", folio_fiscal=");
-		builder.append(folio_fiscal);
-		builder.append(", certificado_sat=");
-		builder.append(certificado_sat);
-		builder.append(", fecha_hora_emision=");
-		builder.append(fecha_hora_emision);
-		builder.append(", fecha_hora_cert=");
-		builder.append(fecha_hora_cert);
-		builder.append(", compl_cert_dig_sat=");
-		builder.append(compl_cert_dig_sat);
-		builder.append(", sello_dig_emisor=");
-		builder.append(sello_dig_emisor);
-		builder.append(", sello_dig_sat=");
-		builder.append(sello_dig_sat);
-		builder.append(", rfc_receptor=");
-		builder.append(rfc_receptor);
-		builder.append(", sale=");
-		builder.append(sale);
-		builder.append("]");
+		builder.append("Invoice [invoice_id=").append(invoice_id)
+				.append(", invoice_date=").append(invoice_date)
+				.append(", status_id=").append(status_id)
+				.append(", folio_fiscal=").append(folio_fiscal)
+				.append(", certificado_sat=").append(certificado_sat)
+				.append(", fecha_hora_emision=").append(fecha_hora_emision)
+				.append(", fecha_hora_cert=").append(fecha_hora_cert)
+				.append(", compl_cert_dig_sat=").append(compl_cert_dig_sat)
+				.append(", sello_dig_emisor=").append(sello_dig_emisor)
+				.append(", sello_dig_sat=").append(sello_dig_sat)
+				.append(", rfc_receptor=").append(rfc_receptor)
+				.append(", sale=").append(sale).append(", created_date=")
+				.append(created_date).append(", modification_date=")
+				.append(modification_date).append("]");
 		return builder.toString();
-	}	
+	}
 	
 }

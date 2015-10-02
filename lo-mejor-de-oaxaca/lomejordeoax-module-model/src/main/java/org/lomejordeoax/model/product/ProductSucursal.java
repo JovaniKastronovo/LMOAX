@@ -23,6 +23,8 @@ public class ProductSucursal implements Serializable {
 	@Column
 	private Integer provider_id;
 	@Column
+	private Integer employee_id;
+	@Column
 	private Integer status_id;
 	@Column
 	private double purchase_price;
@@ -117,14 +119,28 @@ public class ProductSucursal implements Serializable {
 		this.product = product;
 	}
 
+	public Integer getEmployee_id() {
+		return employee_id;
+	}
+
+	public void setEmployee_id(Integer employee_id) {
+		this.employee_id = employee_id;
+	}
+
 	@Override
 	public String toString() {
-		return "ProductSucursal [sucursal_id=" + sucursal_id + ", price="
-				+ price + ", stock=" + stock + ", provider_id=" + provider_id
-				+ ", status_id=" + status_id + ", purchase_price="
-				+ purchase_price + ", min_stock=" + min_stock + ", max_stock="
-				+ max_stock + ", location=" + location + ", product=" + product
-				+ "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("ProductSucursal [sucursal_id=").append(sucursal_id)
+				.append(", price=").append(price).append(", stock=")
+				.append(stock).append(", provider_id=").append(provider_id)
+				.append(", employee_id=").append(employee_id)
+				.append(", status_id=").append(status_id)
+				.append(", purchase_price=").append(purchase_price)
+				.append(", min_stock=").append(min_stock)
+				.append(", max_stock=").append(max_stock).append(", location=")
+				.append(location).append(", product=").append(product)
+				.append("]");
+		return builder.toString();
 	}	
 
 }
