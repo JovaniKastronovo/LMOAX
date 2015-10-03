@@ -2,12 +2,16 @@ package org.lomejordeoax.model.shopping;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -41,6 +45,9 @@ public class Shopping implements Serializable {
 	@Column
 	@Temporal(TemporalType.DATE)
 	private Date purchase_date;
+	
+	@OneToMany(mappedBy = "shopping", fetch =FetchType.EAGER,cascade = CascadeType.ALL)
+	private List<ShoppingDetail> shoppingDetails;
 	
 	
 	public Integer getShopping_id() {
@@ -97,6 +104,12 @@ public class Shopping implements Serializable {
 	public void setPurchase_date(Date purchase_date) {
 		this.purchase_date = purchase_date;
 	}
+	public List<ShoppingDetail> getShoppingDetails() {
+		return shoppingDetails;
+	}
+	public void setShoppingDetails(List<ShoppingDetail> shoppingDetails) {
+		this.shoppingDetails = shoppingDetails;
+	}
 	
 	@Override
 	public String toString() {
@@ -109,7 +122,9 @@ public class Shopping implements Serializable {
 				.append(", created_date=").append(created_date)
 				.append(", delivery_date=").append(delivery_date)
 				.append(", modification_date=").append(modification_date)
-				.append(", purchase_date=").append(purchase_date).append("]");
+				.append(", purchase_date=").append(purchase_date)
+				.append(", shoppingDetails=").append(shoppingDetails)
+				.append("]");
 		return builder.toString();
 	}	
 	

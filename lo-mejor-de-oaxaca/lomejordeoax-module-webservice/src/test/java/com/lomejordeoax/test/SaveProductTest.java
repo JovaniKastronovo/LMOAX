@@ -9,6 +9,7 @@ import org.junit.runner.RunWith;
 import org.lomejordeoax.model.product.Category;
 import org.lomejordeoax.model.product.Departament;
 import org.lomejordeoax.model.product.Product;
+import org.lomejordeoax.model.product.ProductSucursal;
 import org.lomejordeoax.model.product.UnitMeasure;
 import org.lomejordeoax.utilities.exceptions.BusinessException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ import com.lomejordeoax.service.CategoryService;
 import com.lomejordeoax.service.DepartamentService;
 import com.lomejordeoax.service.ProductService;
 import com.lomejordeoax.service.UnitMeasureService;
+import com.lomejordeoax.service.imp.ProductSucServiceImp;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations={"classpath:spring-config.xml"})
@@ -33,6 +35,8 @@ public class SaveProductTest {
 	@Autowired
 	private ProductService productService;
 	@Autowired
+	private ProductSucServiceImp productSucService;
+	@Autowired
 	private CategoryService categoryService;
 	@Autowired
 	private DepartamentService deptoService;
@@ -40,17 +44,27 @@ public class SaveProductTest {
 	private UnitMeasureService unitMeasureService;
 	
 	private Product product;
+	private ProductSucursal productSucursal;
 	
 	@Before
 	public void initData(){
 		product = new Product();
+		productSucursal = new ProductSucursal();
 	}
 	
 	@Test
 	public void saveProduct() throws BusinessException{
 		prepateProduct();
-		productService.saveProduct(product);
+		productService.saveProduct(product);		
 		Assert.assertNotNull(product);		
+		Assert.assertNotNull(product.getProduct_id());
+		prepateProductSucursal();
+		productSucService.saveProdSuc(productSucursal);
+		Assert.assertNotNull(productSucursal);		
+		Assert.assertNotNull(productSucursal.getProduct());
+		Assert.assertNotNull(productSucursal.getProduct().getProduct_id());
+		Assert.assertNotNull(productSucursal.getSucursal_id());
+		
 	}
 	
 	private void prepateProduct() throws BusinessException{
@@ -60,7 +74,7 @@ public class SaveProductTest {
 		String productIdGenerated = generateProductId(catSelected);
 		
 		Assert.assertNotNull(productIdGenerated);
-		Assert.assertTrue("The next product id should be greater than six",productIdGenerated.length()>6);
+		Assert.assertTrue("The next product id should be greater than six",productIdGenerated.length()>0);
 		
 		product.setProduct_id(productIdGenerated);
 		product.setProduct_key(productIdGenerated);
@@ -82,6 +96,19 @@ public class SaveProductTest {
 		product.setCategory(catSelected);
 	}
 	
+	private void prepateProductSucursal(){
+		productSucursal.setProduct(product);
+		productSucursal.setSucursal_id(1);
+		productSucursal.setPrice(149.36);
+		productSucursal.setStock(20);
+		productSucursal.setProvider_id(1);
+		productSucursal.setEmployee_id(1);
+		productSucursal.setStatus_id(1);
+		productSucursal.setPurchase_price(125.5);
+		productSucursal.setMin_stock(5);
+		productSucursal.setMax_stock(5);
+		productSucursal.setLocation("Vitrina");
+	}
 	private int getNextProductId() throws BusinessException{
 		int nextProductId = productService.getNextProductId();
 		Assert.assertTrue("The next product id should be greater than zero.", nextProductId>0);

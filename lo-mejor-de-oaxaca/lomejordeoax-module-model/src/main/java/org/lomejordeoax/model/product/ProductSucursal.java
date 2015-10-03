@@ -2,8 +2,12 @@ package org.lomejordeoax.model.product;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -14,6 +18,9 @@ public class ProductSucursal implements Serializable {
 
 	private static final long serialVersionUID = 7159423957066677981L;
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer product_sucursal_id;
 	@Column
 	private Integer sucursal_id;
 	@Column
@@ -29,13 +36,13 @@ public class ProductSucursal implements Serializable {
 	@Column
 	private double purchase_price;
 	@Column
-	private int min_stock;
+	private double min_stock;
 	@Column
-	private int max_stock;
+	private double max_stock;
 	@Column
 	private String location;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "product_id")
 	private Product product;
 
@@ -87,19 +94,19 @@ public class ProductSucursal implements Serializable {
 		this.purchase_price = purchase_price;
 	}
 
-	public int getMin_stock() {
+	public double getMin_stock() {
 		return min_stock;
 	}
 
-	public void setMin_stock(int min_stock) {
+	public void setMin_stock(double min_stock) {
 		this.min_stock = min_stock;
 	}
 
-	public int getMax_stock() {
+	public double getMax_stock() {
 		return max_stock;
 	}
 
-	public void setMax_stock(int max_stock) {
+	public void setMax_stock(double max_stock) {
 		this.max_stock = max_stock;
 	}
 
@@ -127,14 +134,23 @@ public class ProductSucursal implements Serializable {
 		this.employee_id = employee_id;
 	}
 
+	public Integer getProduct_sucursal_id() {
+		return product_sucursal_id;
+	}
+
+	public void setProduct_sucursal_id(Integer product_sucursal_id) {
+		this.product_sucursal_id = product_sucursal_id;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("ProductSucursal [sucursal_id=").append(sucursal_id)
-				.append(", price=").append(price).append(", stock=")
-				.append(stock).append(", provider_id=").append(provider_id)
-				.append(", employee_id=").append(employee_id)
-				.append(", status_id=").append(status_id)
+		builder.append("ProductSucursal [product_sucursal_id=")
+				.append(product_sucursal_id).append(", sucursal_id=")
+				.append(sucursal_id).append(", price=").append(price)
+				.append(", stock=").append(stock).append(", provider_id=")
+				.append(provider_id).append(", employee_id=")
+				.append(employee_id).append(", status_id=").append(status_id)
 				.append(", purchase_price=").append(purchase_price)
 				.append(", min_stock=").append(min_stock)
 				.append(", max_stock=").append(max_stock).append(", location=")

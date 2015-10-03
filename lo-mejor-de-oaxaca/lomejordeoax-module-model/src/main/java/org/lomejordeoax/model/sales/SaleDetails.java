@@ -23,8 +23,6 @@ public class SaleDetails implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer sale_detail_id;
 	@Column
-	private Integer sale_id;
-	@Column
 	private double quantity;
 	@Column
 	private double price;
@@ -34,6 +32,10 @@ public class SaleDetails implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "product_id")
 	private Product product;
+	
+	@ManyToOne
+	@JoinColumn(name = "sale_id")
+	private Sales sale;
 
 	public Integer getSale_detail_id() {
 		return sale_detail_id;
@@ -41,14 +43,6 @@ public class SaleDetails implements Serializable {
 
 	public void setSale_detail_id(Integer sale_detail_id) {
 		this.sale_detail_id = sale_detail_id;
-	}
-
-	public Integer getSale_id() {
-		return sale_id;
-	}
-
-	public void setSale_id(Integer sale_id) {
-		this.sale_id = sale_id;
 	}
 
 	public double getQuantity() {
@@ -82,12 +76,21 @@ public class SaleDetails implements Serializable {
 	public void setProduct(Product product) {
 		this.product = product;
 	}
-	
-	@Override
-	public String toString() {
-		return "SaleDetails [sale_detail_id=" + sale_detail_id + ", sale_id="
-				+ sale_id + ", quantity=" + quantity + ", price=" + price
-				+ ", discount=" + discount + ", product=" + product + "]";
+
+	public Sales getSale() {
+		return sale;
 	}
 
+	public void setSale(Sales sale) {
+		this.sale = sale;
+	}
+
+	@Override
+	public String toString() {
+		return "SaleDetails [sale_detail_id=" + sale_detail_id + ", quantity="
+				+ quantity + ", price=" + price + ", discount=" + discount
+				+ ", product=" + product + ", sale=" + sale + "]";
+	}
+
+	
 }

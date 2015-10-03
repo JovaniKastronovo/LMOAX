@@ -2,15 +2,22 @@ package org.lomejordeoax.model.company;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.lomejordeoax.model.address.Address;
 
 @Entity
 @Table(name = "ct_provider")
@@ -52,7 +59,13 @@ public class Provider implements Serializable {
 	@Column
 	private Integer company_id;
 	@Column
-	private Integer employee_id;
+	private Integer employee_id;	
+	
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "ta_provider_address", 
+	joinColumns ={ @JoinColumn(name = "provider_id")},
+	inverseJoinColumns ={ @JoinColumn(name = "address_id") })
+	private List<Address> address;
 	
 	public Integer getProvider_id() {
 		return provider_id;

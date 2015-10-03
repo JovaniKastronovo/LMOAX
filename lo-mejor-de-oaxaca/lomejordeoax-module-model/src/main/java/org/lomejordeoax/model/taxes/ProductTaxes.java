@@ -5,6 +5,9 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -16,6 +19,10 @@ import javax.persistence.TemporalType;
 public class ProductTaxes implements Serializable {
 
 	private static final long serialVersionUID = -468636919027027301L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer product_taxe_id;
 	@Column
 	private String product_id;	
 	@ManyToOne
@@ -68,10 +75,17 @@ public class ProductTaxes implements Serializable {
 	public void setModification_date(Date modification_date) {
 		this.modification_date = modification_date;
 	}
+	public Integer getProduct_taxe_id() {
+		return product_taxe_id;
+	}
+	public void setProduct_taxe_id(Integer product_taxe_id) {
+		this.product_taxe_id = product_taxe_id;
+	}
 	
 	@Override
 	public String toString() {
-		return "ProductTaxes [product_id=" + product_id + ", taxes=" + taxes
+		return "ProductTaxes [product_taxe_id=" + product_taxe_id
+				+ ", product_id=" + product_id + ", taxes=" + taxes
 				+ ", order=" + order + ", status_id=" + status_id
 				+ ", created_date=" + created_date + ", modification_date="
 				+ modification_date + "]";

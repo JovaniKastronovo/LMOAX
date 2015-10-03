@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,8 +21,6 @@ public class ShoppingDetail implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer shopping_detail_id;
 	@Column
-	private Integer shopping_id;
-	@Column
 	private String product_id;
 	@Column
 	private double quantity;
@@ -29,17 +29,15 @@ public class ShoppingDetail implements Serializable {
 	@Column
 	private double discount;
 	
+	@ManyToOne
+	@JoinColumn(name = "shopping_id")
+	private Shopping shopping;
+	
 	public Integer getShopping_detail_id() {
 		return shopping_detail_id;
 	}
 	public void setShopping_detail_id(Integer shopping_detail_id) {
 		this.shopping_detail_id = shopping_detail_id;
-	}
-	public Integer getShopping_id() {
-		return shopping_id;
-	}
-	public void setShopping_id(Integer shopping_id) {
-		this.shopping_id = shopping_id;
 	}
 	public String getProduct_id() {
 		return product_id;
@@ -65,13 +63,23 @@ public class ShoppingDetail implements Serializable {
 	public void setDiscount(double discount) {
 		this.discount = discount;
 	}
+	public Shopping getShopping() {
+		return shopping;
+	}
+	public void setShopping(Shopping shopping) {
+		this.shopping = shopping;
+	}
 	
 	@Override
 	public String toString() {
-		return "ShoppingDetail [shopping_detail_id=" + shopping_detail_id
-				+ ", shopping_id=" + shopping_id + ", product_id=" + product_id
-				+ ", quantity=" + quantity + ", price=" + price + ", discount="
-				+ discount + "]";
-	}	
+		StringBuilder builder = new StringBuilder();
+		builder.append("ShoppingDetail [shopping_detail_id=")
+				.append(shopping_detail_id).append(", product_id=")
+				.append(product_id).append(", quantity=").append(quantity)
+				.append(", price=").append(price).append(", discount=")
+				.append(discount).append(", shopping=").append(shopping)
+				.append("]");
+		return builder.toString();
+	}
 
 }

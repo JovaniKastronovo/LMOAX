@@ -6,15 +6,14 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "ta_company_address")
+
 public class CompanyAddress implements Serializable {
 	
 	private static final long serialVersionUID = 7679616651488321856L;
 	
-	@Column
+	
 	private Integer company_id;
-	@Column
+	
 	private Integer address_id;
 	
 	public Integer getCompany_id() {
