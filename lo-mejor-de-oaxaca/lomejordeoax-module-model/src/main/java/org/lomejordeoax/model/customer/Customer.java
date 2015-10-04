@@ -18,6 +18,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.lomejordeoax.model.address.Address;
+import org.lomejordeoax.model.address.Phone;
 
 @Entity
 @Table(name = "ta_customer")
@@ -74,6 +75,12 @@ public class Customer implements Serializable {
 	joinColumns ={ @JoinColumn(name = "customer_id")},
 	inverseJoinColumns ={ @JoinColumn(name = "address_id") })
 	private List<Address> address;
+	
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "ta_customer_phone", 
+	joinColumns ={ @JoinColumn(name = "customer_id")},
+	inverseJoinColumns ={ @JoinColumn(name = "phone_id") })
+	private List<Phone> phones;
 	
 	public Integer getCustomer_id() {
 		return customer_id;
@@ -195,6 +202,18 @@ public class Customer implements Serializable {
 	public void setStatus_id(Integer status_id) {
 		this.status_id = status_id;
 	}
+	public List<Address> getAddress() {
+		return address;
+	}
+	public void setAddress(List<Address> address) {
+		this.address = address;
+	}
+	public List<Phone> getPhones() {
+		return phones;
+	}
+	public void setPhones(List<Phone> phones) {
+		this.phones = phones;
+	}
 	
 	@Override
 	public String toString() {
@@ -216,7 +235,8 @@ public class Customer implements Serializable {
 				.append(", sale_price_id=").append(sale_price_id)
 				.append(", created_date=").append(created_date)
 				.append(", modification_date=").append(modification_date)
-				.append("]");
+				.append(", address=").append(address).append(", phones=")
+				.append(phones).append("]");
 		return builder.toString();
 	}
 	

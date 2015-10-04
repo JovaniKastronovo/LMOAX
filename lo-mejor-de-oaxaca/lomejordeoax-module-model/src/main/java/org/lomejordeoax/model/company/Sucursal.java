@@ -91,14 +91,23 @@ public class Sucursal implements Serializable {
 	public void setMatriz_sucursal_id(Integer matriz_sucursal_id) {
 		this.matriz_sucursal_id = matriz_sucursal_id;
 	}
-	
+	public List<Address> getAddress() {
+		return address;
+	}
+	public void setAddress(List<Address> address) {
+		this.address = address;
+	}
 	@Override
 	public String toString() {
-		return "Sucursal [sucursal_id=" + sucursal_id + ", company_id="
-				+ company_id + ", name=" + name + ", created_date="
-				+ created_date + ", modification_date=" + modification_date
-				+ ", description=" + description + ", matriz_sucursal_id="
-				+ matriz_sucursal_id + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("Sucursal [sucursal_id=").append(sucursal_id)
+				.append(", company_id=").append(company_id).append(", name=")
+				.append(name).append(", created_date=").append(created_date)
+				.append(", modification_date=").append(modification_date)
+				.append(", description=").append(description)
+				.append(", matriz_sucursal_id=").append(matriz_sucursal_id)
+				.append(", address=").append(address).append("]");
+		return builder.toString();
 	}	
 
 }

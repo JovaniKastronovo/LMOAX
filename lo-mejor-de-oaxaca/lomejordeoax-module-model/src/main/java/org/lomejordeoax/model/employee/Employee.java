@@ -4,14 +4,21 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.lomejordeoax.model.address.Address;
+import org.lomejordeoax.model.address.Phone;
 
 @Entity
 @Table(name = "ta_employee")
@@ -50,6 +57,18 @@ public class Employee implements Serializable {
 	@Column
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date modification_date;
+	
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "ta_employee_phone", 
+	joinColumns ={ @JoinColumn(name = "employee_id")},
+	inverseJoinColumns ={ @JoinColumn(name = "phone_id") })
+	private List<Phone> phones;
+	
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "ta_employee_address", 
+	joinColumns ={ @JoinColumn(name = "employee_id")},
+	inverseJoinColumns ={ @JoinColumn(name = "address_id") })
+	private List<Address> address;
 	
 	public Integer getEmployee_id() {
 		return employee_id;
@@ -135,7 +154,18 @@ public class Employee implements Serializable {
 	public void setModification_date(Date modification_date) {
 		this.modification_date = modification_date;
 	}
-	
+	public List<Phone> getPhones() {
+		return phones;
+	}
+	public void setPhones(List<Phone> phones) {
+		this.phones = phones;
+	}
+	public List<Address> getAddress() {
+		return address;
+	}
+	public void setAddress(List<Address> address) {
+		this.address = address;
+	}
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -151,8 +181,9 @@ public class Employee implements Serializable {
 				.append(", company_id=").append(company_id)
 				.append(", created_date=").append(created_date)
 				.append(", modification_date=").append(modification_date)
-				.append("]");
+				.append(", phones=").append(phones).append(", address=")
+				.append(address).append("]");
 		return builder.toString();
-	}
+	}	
 
 }

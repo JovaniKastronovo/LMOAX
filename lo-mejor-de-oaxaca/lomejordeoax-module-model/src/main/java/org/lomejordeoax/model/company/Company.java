@@ -2,15 +2,22 @@ package org.lomejordeoax.model.company;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.lomejordeoax.model.address.Address;
 
 @Entity
 @Table(name = "ta_company")
@@ -41,6 +48,12 @@ public class Company implements Serializable {
 	@Column
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date modification_date;
+	
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "ta_company_address", 
+	joinColumns ={ @JoinColumn(name = "company_id")},
+	inverseJoinColumns ={ @JoinColumn(name = "address_id") })
+	private List<Address> address;
 	
 	public Integer getCompany_id() {
 		return company_id;
@@ -102,15 +115,26 @@ public class Company implements Serializable {
 	public void setModification_date(Date modification_date) {
 		this.modification_date = modification_date;
 	}
+	public List<Address> getAddress() {
+		return address;
+	}
+	public void setAddress(List<Address> address) {
+		this.address = address;
+	}
 	
 	@Override
 	public String toString() {
-		return "Company [company_id=" + company_id + ", company_name="
-				+ company_name + ", rfc=" + rfc + ", email=" + email + ", fax="
-				+ fax + ", web_site=" + web_site + ", logo=" + logo
-				+ ", commercial_business=" + commercial_business
-				+ ", created_date=" + created_date + ", modification_date="
-				+ modification_date + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("Company [company_id=").append(company_id)
+				.append(", company_name=").append(company_name)
+				.append(", rfc=").append(rfc).append(", email=").append(email)
+				.append(", fax=").append(fax).append(", web_site=")
+				.append(web_site).append(", logo=").append(logo)
+				.append(", commercial_business=").append(commercial_business)
+				.append(", created_date=").append(created_date)
+				.append(", modification_date=").append(modification_date)
+				.append(", address=").append(address).append("]");
+		return builder.toString();
 	}		
 
 }
