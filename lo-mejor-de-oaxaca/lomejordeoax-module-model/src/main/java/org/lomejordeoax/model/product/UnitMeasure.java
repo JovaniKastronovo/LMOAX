@@ -33,6 +33,8 @@ public class UnitMeasure implements Serializable {
 	@Column
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date modification_date;	
+	@Column
+	private Integer company_id;
 	
 	public Integer getUnit_measure_id() {
 		return unit_measure_id;
@@ -82,13 +84,21 @@ public class UnitMeasure implements Serializable {
 		this.modification_date = modification_date;
 	}
 
+	public Integer getCompany_id() {
+		return company_id;
+	}
+
+	public void setCompany_id(Integer company_id) {
+		this.company_id = company_id;
+	}
+
 	@Override
 	public String toString() {
 		return "UnitMeasure [unit_measure_id=" + unit_measure_id
 				+ ", unit_measure=" + unit_measure + ", description="
 				+ description + ", abbreviation=" + abbreviation
 				+ ", created_date=" + created_date + ", modification_date="
-				+ modification_date + "]";
-	}		
+				+ modification_date + ", company_id=" + company_id + "]";
+	}	
 	
 }

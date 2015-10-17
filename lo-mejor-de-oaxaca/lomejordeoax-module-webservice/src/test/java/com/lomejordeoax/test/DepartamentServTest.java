@@ -1,5 +1,6 @@
 package com.lomejordeoax.test;
 
+import java.util.Date;
 import java.util.List;
 
 import org.junit.Assert;
@@ -72,7 +73,11 @@ public class DepartamentServTest {
 	
 	private void createNewDeptoInst(){
 		departament.setName("Abarrotes");
-		departament.setDescription("Abarrotes");		
+		departament.setDescription("Abarrotes");	
+		departament.setPicture("aba.pgn");
+		departament.setCompany_id(1);
+		departament.setCreated_date(new Date());
+		departament.setModification_date(new Date());
 	}
 	
 	private void createUpdDepto(){

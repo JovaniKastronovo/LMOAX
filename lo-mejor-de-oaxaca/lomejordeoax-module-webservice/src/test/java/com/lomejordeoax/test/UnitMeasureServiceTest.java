@@ -42,6 +42,7 @@ public class UnitMeasureServiceTest {
 		unitMeasure.setUnit_measure("Kilogramo");
 		unitMeasure.setDescription("Kilos");
 		unitMeasure.setAbbreviation("Kg");
+		unitMeasure.setCompany_id(1);
 		unitMeasure.setCreated_date(new Date());
 		unitMeasure.setModification_date(new Date());
 	}

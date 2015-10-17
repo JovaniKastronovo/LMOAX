@@ -19,8 +19,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.lomejordeoax.service.CategoryService;
 import com.lomejordeoax.service.DepartamentService;
 import com.lomejordeoax.service.ProductService;
+import com.lomejordeoax.service.ProductSucursalService;
 import com.lomejordeoax.service.UnitMeasureService;
-import com.lomejordeoax.service.imp.ProductSucServiceImp;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations={"classpath:spring-config.xml"})
@@ -35,7 +35,7 @@ public class SaveProductTest {
 	@Autowired
 	private ProductService productService;
 	@Autowired
-	private ProductSucServiceImp productSucService;
+	private ProductSucursalService productSucService;
 	@Autowired
 	private CategoryService categoryService;
 	@Autowired

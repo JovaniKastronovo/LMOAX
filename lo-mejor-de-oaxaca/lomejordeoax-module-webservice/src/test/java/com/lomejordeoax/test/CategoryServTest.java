@@ -1,5 +1,6 @@
 package com.lomejordeoax.test;
 
+import java.util.Date;
 import java.util.List;
 
 import org.junit.Assert;
@@ -40,12 +41,16 @@ public class CategoryServTest {
 	
 	private void createNewCatetObj(){
 		Departament depto = new Departament();
-		depto.setDepartament_id(6);
+		depto.setDepartament_id(1);
 		depto.setDescription("Abarratotes");
 		depto.setDescription("Abarrotes");
 		category.setDepartament(depto);
-		category.setDescription("Cereales");
+		category.setName("Cereales");
+		category.setDescription("Todo tipo de cereal");
 		category.setPicture("ref0545.jpg");
+		category.setCompany_id(1);
+		category.setCreated_date(new Date());
+		category.setModification_date(new Date());
 	}
 	
 	private void updateCategoryObj() throws BusinessException{

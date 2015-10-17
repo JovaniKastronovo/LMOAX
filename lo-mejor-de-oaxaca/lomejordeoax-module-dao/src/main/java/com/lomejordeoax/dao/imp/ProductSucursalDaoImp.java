@@ -15,7 +15,7 @@ public class ProductSucursalDaoImp extends HGenericDaoImp<ProductSucursal, Integ
 		implements ProductSucursalDao {
 	
 	private static final String PRODUCTS_BY_SUCURSAL_ID_HQL = "from ProductSucursal ps where ps.sucursal_id = ?";
-	private static final String PRODUCT_SUCURSAL_BY_ID = "from ProductSucursal ps where ps.product_id = ? and ps.sucrusal_id=?";
+	private static final String PRODUCT_SUCURSAL_BY_ID = "from ProductSucursal ps where ps.product.product_id = ? and ps.sucursal_id=?";
 	private static final String PRODUCT_SUC_CURRENT_STOCK = "from ProductSucursal ps where ps.stock = ?";
 	
 	@Override
