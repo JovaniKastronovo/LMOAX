@@ -27,9 +27,9 @@ public class ProductTaxes implements Serializable {
 	private String product_id;	
 	@ManyToOne
 	@JoinColumn(name="tax_id")
-	private Taxes taxes;
+	private Taxes taxes;	
 	@Column
-	private int order;
+	private int orderr;
 	@Column
 	private Integer status_id;
 	@Column
@@ -50,12 +50,13 @@ public class ProductTaxes implements Serializable {
 	}
 	public void setTaxes(Taxes taxes) {
 		this.taxes = taxes;
+	}	
+	
+	public int getOrderr() {
+		return orderr;
 	}
-	public int getOrder() {
-		return order;
-	}
-	public void setOrder(int order) {
-		this.order = order;
+	public void setOrderr(int orderr) {
+		this.orderr = orderr;
 	}
 	public Integer getStatus_id() {
 		return status_id;
@@ -86,7 +87,7 @@ public class ProductTaxes implements Serializable {
 	public String toString() {
 		return "ProductTaxes [product_taxe_id=" + product_taxe_id
 				+ ", product_id=" + product_id + ", taxes=" + taxes
-				+ ", order=" + order + ", status_id=" + status_id
+				+ ", order=" + orderr + ", status_id=" + status_id
 				+ ", created_date=" + created_date + ", modification_date="
 				+ modification_date + "]";
 	}	
