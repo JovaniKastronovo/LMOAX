@@ -27,16 +27,11 @@ public class SaleDetails implements Serializable {
 	@Column
 	private double price;
 	@Column
-	private double discount;
-	
+	private double discount;	
 	@ManyToOne
 	@JoinColumn(name = "product_id")
 	private Product product;
 	
-	@ManyToOne
-	@JoinColumn(name = "sale_id")
-	private Sales sale;
-
 	public Integer getSale_detail_id() {
 		return sale_detail_id;
 	}
@@ -77,20 +72,11 @@ public class SaleDetails implements Serializable {
 		this.product = product;
 	}
 
-	public Sales getSale() {
-		return sale;
-	}
-
-	public void setSale(Sales sale) {
-		this.sale = sale;
-	}
-
 	@Override
 	public String toString() {
 		return "SaleDetails [sale_detail_id=" + sale_detail_id + ", quantity="
 				+ quantity + ", price=" + price + ", discount=" + discount
-				+ ", product=" + product + ", sale=" + sale + "]";
+				+ ", product=" + product + "]";
 	}
-
 	
 }

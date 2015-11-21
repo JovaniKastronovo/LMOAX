@@ -11,6 +11,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -18,7 +20,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "ta_sale")
-public class Sales implements Serializable {
+public class Sale implements Serializable {
 
 	private static final long serialVersionUID = 5330263122632358635L;
 	
@@ -41,16 +43,20 @@ public class Sales implements Serializable {
 	@Column
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date modification_date;	
-	@Column
+	@ManyToOne
+	@JoinColumn(name="method_payment_id")
 	private MethodOfPayment methodOfPayment;
 	@Column
 	private String comments;
-	@Column
+	@ManyToOne
+	@JoinColumn(name="document_sale_id")
 	private DocumentSale documentSale;
-	@Column
+	@ManyToOne
+	@JoinColumn(name="type_of_currency_id")
 	private TypeOfCurrency typeOfCurrency;
 	
-	@OneToMany(mappedBy = "sale",fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name = "sale_id",nullable = false)
 	private List<SaleDetails> saleDetails;
 	
 	
@@ -126,15 +132,24 @@ public class Sales implements Serializable {
 	public void setTypeOfCurrency(TypeOfCurrency typeOfCurrency) {
 		this.typeOfCurrency = typeOfCurrency;
 	}
+	public List<SaleDetails> getSaleDetails() {
+		return saleDetails;
+	}
+	public void setSaleDetails(List<SaleDetails> saleDetails) {
+		this.saleDetails = saleDetails;
+	}
+	
 	@Override
 	public String toString() {
 		return "Sales [sale_id=" + sale_id + ", employee_id=" + employee_id
 				+ ", customer_id=" + customer_id + ", status_id=" + status_id
-				+ ", sucursal_id=" + sucursal_id + ", created_date="
-				+ created_date + ", delivery_date=" + delivery_date
-				+ ", modification_date=" + modification_date + ", comments="
-				+ comments + "]";
+				+ ", sucursal_id=" + sucursal_id + ", delivery_date="
+				+ delivery_date + ", created_date=" + created_date
+				+ ", modification_date=" + modification_date
+				+ ", methodOfPayment=" + methodOfPayment + ", comments="
+				+ comments + ", documentSale=" + documentSale
+				+ ", typeOfCurrency=" + typeOfCurrency + ", saleDetails="
+				+ saleDetails + "]";
 	}
-	
 
 }

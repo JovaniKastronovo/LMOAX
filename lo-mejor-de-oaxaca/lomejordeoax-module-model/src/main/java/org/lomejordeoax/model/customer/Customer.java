@@ -38,7 +38,8 @@ public class Customer implements Serializable {
 	@Column
 	private String email;
 	@Column
-	private String birth_date;
+	@Temporal(TemporalType.DATE)
+	private Date birth_date;
 	@Column
 	private Character sex;
 	@Column
@@ -111,11 +112,11 @@ public class Customer implements Serializable {
 	}
 	public void setEmail(String email) {
 		this.email = email;
-	}
-	public String getBirth_date() {
+	}	
+	public Date getBirth_date() {
 		return birth_date;
 	}
-	public void setBirth_date(String birth_date) {
+	public void setBirth_date(Date birth_date) {
 		this.birth_date = birth_date;
 	}
 	public Character getSex() {
@@ -214,7 +215,6 @@ public class Customer implements Serializable {
 	public void setPhones(List<Phone> phones) {
 		this.phones = phones;
 	}
-	
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -238,6 +238,5 @@ public class Customer implements Serializable {
 				.append(", address=").append(address).append(", phones=")
 				.append(phones).append("]");
 		return builder.toString();
-	}
-	
+	}	
 }

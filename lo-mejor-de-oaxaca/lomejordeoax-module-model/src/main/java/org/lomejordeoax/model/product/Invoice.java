@@ -14,7 +14,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import org.lomejordeoax.model.sales.Sales;
+import org.lomejordeoax.model.sales.Sale;
 
 @Entity
 @Table(name="ta_invoice")
@@ -50,7 +50,7 @@ public class Invoice implements Serializable {
 	
 	@ManyToOne
 	@JoinColumn(name="sale_id")
-	private Sales sale;
+	private Sale sale;
 	
 	@Column
 	@Temporal(TemporalType.TIMESTAMP)
@@ -147,11 +147,11 @@ public class Invoice implements Serializable {
 		this.rfc_receptor = rfc_receptor;
 	}
 
-	public Sales getSale() {
+	public Sale getSale() {
 		return sale;
 	}
 
-	public void setSale(Sales sale) {
+	public void setSale(Sale sale) {
 		this.sale = sale;
 	}
 

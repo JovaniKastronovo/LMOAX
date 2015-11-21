@@ -38,7 +38,7 @@ public class ProductTaxeServiceImp implements ProductTaxeService{
 		try {
 			productTaxesDao.update(prodTaxes);
 		} catch (Exception e) {
-			logger.error("Error saving productTaxes="+e.getMessage(),e);
+			logger.error("Error updaing productTaxes="+e.getMessage(),e);
 			throw new BusinessException(e.getMessage());
 		}		
 	}
