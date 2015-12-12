@@ -37,14 +37,13 @@ public class SaleServiceImp implements SaleService {
 	@Override
 	public void updSale(Sale sale) throws BusinessException {
 		try {
-			saleDao.save(sale);
+			saleDao.update(sale);
 		} catch (DataException e) {
 			logger.error("Error updating sale="+e.getMessage(),e);
 			throw new BusinessException(e.getMessage());
 		}
 	}
 
-	@Transactional(readOnly=true)
 	@Override
 	public List<Sale> getSalesByStatus(SaleStatus status) throws BusinessException {
 		try {
@@ -54,7 +53,6 @@ public class SaleServiceImp implements SaleService {
 		}
 	}
 
-	@Transactional(readOnly=true)
 	@Override
 	public List<Sale> getSalesBySucursal(Integer sucursalId) throws BusinessException {
 		try {
@@ -64,7 +62,6 @@ public class SaleServiceImp implements SaleService {
 		}
 	}
 
-	@Transactional(readOnly=true)
 	@Override
 	public List<Sale> getSalesByCustomerId(Integer customerId) throws BusinessException {
 		try {
@@ -72,6 +69,20 @@ public class SaleServiceImp implements SaleService {
 		} catch (DataException e) {
 			throw new BusinessException("Error getting sales by customerId="+customerId,e);
 		}
+	}
+
+	@Override
+	public Sale saleById(Integer saleId) throws BusinessException {
+		if(saleId!=null){
+			try {
+				Sale sale = saleDao.find(saleId);
+				return sale;
+			} catch (DataException e) {
+				logger.error("Sale "+saleId+" not found",e);
+				throw new BusinessException("Sale no found",e);
+			}
+		}else
+			throw new BusinessException("Sale Id required");
 	}
 
 }

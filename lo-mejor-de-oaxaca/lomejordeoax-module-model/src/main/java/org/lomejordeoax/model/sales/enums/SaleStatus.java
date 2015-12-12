@@ -2,7 +2,7 @@ package org.lomejordeoax.model.sales.enums;
 
 public enum SaleStatus {
 
-	ACTIVE(2, "Activo"),
+	ACTIVE(1, "Activo"),
 	CLOSE(3, "Cerrado"),
 	CANCELED(4, "Cancelado");
 	

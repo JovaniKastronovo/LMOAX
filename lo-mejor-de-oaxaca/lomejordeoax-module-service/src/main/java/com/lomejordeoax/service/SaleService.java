@@ -13,4 +13,5 @@ public interface SaleService {
 	List<Sale> getSalesByStatus(SaleStatus status)throws BusinessException;
 	List<Sale> getSalesBySucursal(Integer sucursalId)throws BusinessException;
 	List<Sale> getSalesByCustomerId(Integer customerId)throws BusinessException;
+	Sale saleById(Integer saleId)throws BusinessException;
 }
