@@ -27,7 +27,7 @@ import com.lomejordeoax.service.SaleService;
 public class SaveSaleTest {
 
 	private static Integer SUCURSAL_ID = 1;
-	private static Integer CUSTOMER_ID = 2;
+	private static Integer CUSTOMER_ID = 1;
 	private static Integer EMPLOYEE_ID = 1;
 	private static Integer METHOD_OF_PAYMENT_ID = 1;
 	private static Integer DOCUMENT_SALE_ID = 1;
@@ -54,7 +54,7 @@ public class SaveSaleTest {
 	private void preparateSale(){
 		sale.setEmployee_id(EMPLOYEE_ID);
 		sale.setCustomer_id(CUSTOMER_ID);
-		sale.setStatus_id(SaleStatus.ACTIVE.getStatusId());
+		sale.setSale_status_id(SaleStatus.ACTIVE.getStatusId());
 		sale.setSucursal_id(SUCURSAL_ID);
 		
 		DocumentSale docSale = getDocumentSale();
@@ -80,7 +80,7 @@ public class SaveSaleTest {
 		saleDetails1.setDiscount(0);
 		//Add product
 		Product product1 = new Product();
-		product1.setProduct_id("ABALAC3");
+		product1.setProduct_id("ABALAC9");
 		saleDetails1.setProduct(product1);
 		
 		

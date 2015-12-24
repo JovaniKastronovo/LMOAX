@@ -29,7 +29,7 @@ public class SaveCustomerTest {
 	private static final Integer EMPLOYEE_ID = 1;
 	private static final Integer COMPANY_ID = 1;
 	private static final Integer ADDRESS_TYPE_ID = 1;
-	private static final Integer NEIGHBORHOOD_ID = 1;
+	private static final Integer NEIGHBORHOOD_ID = 1332;
 	
 	@Autowired
 	private CustomerService customerService;
@@ -53,16 +53,18 @@ public class SaveCustomerTest {
 		customer.setFirst_name("Carlos");
 		customer.setMiddle_name("Daniel");
 		customer.setLast_name("Ortiz");
+		customer.setSecond_last_name("Hernandez");
 		customer.setEmail("carlito.ortiz@gmail.com");
 		customer.setBirth_date(new Date());
 		customer.setSex(new Character('H'));
+		customer.setPosition("Promotor");
 		customer.setAgent("Noel Jose Perez");
 		customer.setRfc("OIFI05CF54564");
 		customer.setCurp("CURP5662T3232");
 		customer.setCredit_limit(5000.00);
 		customer.setCredit_days(20);
 		customer.setEmployee_id(EMPLOYEE_ID);
-		customer.setStatus_id(STATUS_ID);
+		customer.setCustomer_status_id(STATUS_ID);
 		customer.setCompany_id(COMPANY_ID);
 		customer.setCreated_date(new Date());
 		customer.setModification_date(new Date());
@@ -83,7 +85,6 @@ public class SaveCustomerTest {
 		addressOne.setExterior_number("56");
 		addressOne.setCreated_date(new Date());
 		addressOne.setModification_date(new Date());
-		addressOne.setStatus_id(STATUS_ID);
 		addressOne.setNeighborhood_id(NEIGHBORHOOD_ID);
 		addressOne.setCompany_id(COMPANY_ID);
 		
@@ -100,8 +101,6 @@ public class SaveCustomerTest {
 		phoneOne.setExtension("72563");
 		phoneOne.setMobile(false);
 		phoneOne.setPhoneType(phoneType);
-		phoneOne.setStatus_id(STATUS_ID);
-		phoneOne.setCompany_id(COMPANY_ID);
 		phoneOne.setCreated_date(new Date());
 		phoneOne.setModification_date(new Date());
 		

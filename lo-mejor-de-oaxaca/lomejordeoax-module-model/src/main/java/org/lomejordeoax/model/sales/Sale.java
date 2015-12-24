@@ -32,10 +32,11 @@ public class Sale implements Serializable {
 	@Column
 	private Integer customer_id;
 	@Column
-	private Integer status_id;
+	private Integer sale_status_id;
 	@Column
 	private Integer sucursal_id;
 	@Column
+	@Temporal(TemporalType.DATE)
 	private Date delivery_date;
 	@Column
 	@Temporal(TemporalType.TIMESTAMP)
@@ -77,12 +78,12 @@ public class Sale implements Serializable {
 	}
 	public void setCustomer_id(Integer customer_id) {
 		this.customer_id = customer_id;
+	}	
+	public Integer getSale_status_id() {
+		return sale_status_id;
 	}
-	public Integer getStatus_id() {
-		return status_id;
-	}
-	public void setStatus_id(Integer status_id) {
-		this.status_id = status_id;
+	public void setSale_status_id(Integer sale_status_id) {
+		this.sale_status_id = sale_status_id;
 	}
 	public Integer getSucursal_id() {
 		return sucursal_id;
@@ -142,7 +143,7 @@ public class Sale implements Serializable {
 	@Override
 	public String toString() {
 		return "Sales [sale_id=" + sale_id + ", employee_id=" + employee_id
-				+ ", customer_id=" + customer_id + ", status_id=" + status_id
+				+ ", customer_id=" + customer_id + ", sale_status_id=" + sale_status_id
 				+ ", sucursal_id=" + sucursal_id + ", delivery_date="
 				+ delivery_date + ", created_date=" + created_date
 				+ ", modification_date=" + modification_date

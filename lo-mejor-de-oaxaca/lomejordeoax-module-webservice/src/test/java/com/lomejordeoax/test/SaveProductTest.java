@@ -89,7 +89,6 @@ public class SaveProductTest {
 		product.setGranel(1);
 		product.setCreated_date(new Date());
 		product.setModification_date(new Date());
-		product.setStatus_id(1);
 		product.setUnitBuy(unitM);
 		product.setUnitSale(unitM);
 		
@@ -103,11 +102,11 @@ public class SaveProductTest {
 		productSucursal.setStock(20);
 		productSucursal.setProvider_id(1);
 		productSucursal.setEmployee_id(1);
-		productSucursal.setStatus_id(1);
 		productSucursal.setPurchase_price(125.5);
 		productSucursal.setMin_stock(5);
 		productSucursal.setMax_stock(5);
 		productSucursal.setLocation("Vitrina");
+		productSucursal.setProduct_status_id(1);
 	}
 	private int getNextProductId() throws BusinessException{
 		int nextProductId = productService.getNextProductId();

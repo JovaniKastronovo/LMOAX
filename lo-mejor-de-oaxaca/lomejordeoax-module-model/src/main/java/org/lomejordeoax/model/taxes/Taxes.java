@@ -26,17 +26,19 @@ public class Taxes implements Serializable {
 	@Column
 	private String description;
 	@Column
+	private String abbreviation;	
+	@Column
 	private double percentage;
 	@Column
-	private int print;
+	private boolean print;
 	@Column
-	private int local_tax;
+	private boolean local_tax;
 	@Column
-	private int transferred;
+	private boolean transferred;
 	@Column
-	private int retained;
+	private boolean retained;
 	@Column
-	private int applying_iva;
+	private boolean applying_iva;
 	@Column
 	private Integer company_id;
 	@Column
@@ -44,7 +46,7 @@ public class Taxes implements Serializable {
 	private Date created_date;	
 	@Column
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date modification_date;	
+	private Date modification_date;
 	
 	public Integer getTax_id() {
 		return tax_id;
@@ -64,40 +66,46 @@ public class Taxes implements Serializable {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	public String getAbbreviation() {
+		return abbreviation;
+	}
+	public void setAbbreviation(String abbreviation) {
+		this.abbreviation = abbreviation;
+	}
 	public double getPercentage() {
 		return percentage;
 	}
 	public void setPercentage(double percentage) {
 		this.percentage = percentage;
 	}
-	public int getPrint() {
+	public boolean isPrint() {
 		return print;
 	}
-	public void setPrint(int print) {
+	public void setPrint(boolean print) {
 		this.print = print;
 	}
-	public int getLocal_tax() {
+	public boolean isLocal_tax() {
 		return local_tax;
 	}
-	public void setLocal_tax(int local_tax) {
+	public void setLocal_tax(boolean local_tax) {
 		this.local_tax = local_tax;
 	}
-	public int getTransferred() {
+	public boolean isTransferred() {
 		return transferred;
 	}
-	public void setTransferred(int transferred) {
+	public void setTransferred(boolean transferred) {
 		this.transferred = transferred;
 	}
-	public int getRetained() {
+	public boolean isRetained() {
 		return retained;
 	}
-	public void setRetained(int retained) {
+	public void setRetained(boolean retained) {
 		this.retained = retained;
 	}
-	public int getApplying_iva() {
+	public boolean isApplying_iva() {
 		return applying_iva;
 	}
-	public void setApplying_iva(int applying_iva) {
+	public void setApplying_iva(boolean applying_iva) {
 		this.applying_iva = applying_iva;
 	}
 	public Integer getCompany_id() {
@@ -124,6 +132,7 @@ public class Taxes implements Serializable {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Taxes [tax_id=").append(tax_id).append(", name=")
 				.append(name).append(", description=").append(description)
+				.append(", abbreviation=").append(abbreviation)
 				.append(", percentage=").append(percentage).append(", print=")
 				.append(print).append(", local_tax=").append(local_tax)
 				.append(", transferred=").append(transferred)
@@ -134,6 +143,6 @@ public class Taxes implements Serializable {
 				.append(", modification_date=").append(modification_date)
 				.append("]");
 		return builder.toString();
-	}
+	}	
 	
 }

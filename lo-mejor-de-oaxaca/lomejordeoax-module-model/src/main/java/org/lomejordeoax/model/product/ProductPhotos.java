@@ -26,7 +26,7 @@ public class ProductPhotos implements Serializable {
 	@Column
 	private String path;
 	@Column
-	private Integer status_id;
+	private boolean active;
 	@Column
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date created_date;	
@@ -51,12 +51,12 @@ public class ProductPhotos implements Serializable {
 	}
 	public void setPath(String path) {
 		this.path = path;
+	}	
+	public boolean isActive() {
+		return active;
 	}
-	public Integer getStatus_id() {
-		return status_id;
-	}
-	public void setStatus_id(Integer status_id) {
-		this.status_id = status_id;
+	public void setActive(boolean active) {
+		this.active = active;
 	}
 	public Date getCreated_date() {
 		return created_date;
@@ -75,7 +75,7 @@ public class ProductPhotos implements Serializable {
 	public String toString() {
 		return "ProductPhotos [product_photos_id=" + product_photos_id
 				+ ", product_id=" + product_id + ", path=" + path
-				+ ", status_id=" + status_id + ", created_date=" + created_date
+				+ ", active=" + active + ", created_date=" + created_date
 				+ ", modification_date=" + modification_date + "]";
 	}
 	

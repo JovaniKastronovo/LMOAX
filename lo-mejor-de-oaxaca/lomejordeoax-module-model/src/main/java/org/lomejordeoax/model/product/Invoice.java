@@ -26,9 +26,10 @@ public class Invoice implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer invoice_id;
 	@Column
+	@Temporal(TemporalType.DATE)
 	private Date invoice_date;
 	@Column
-	private Integer status_id;
+	private Integer invoice_status_id;
 	@Column
 	private String folio_fiscal;
 	@Column
@@ -73,14 +74,14 @@ public class Invoice implements Serializable {
 
 	public void setInvoice_date(Date invoice_date) {
 		this.invoice_date = invoice_date;
+	}	
+
+	public Integer getInvoice_status_id() {
+		return invoice_status_id;
 	}
 
-	public int getStatus_id() {
-		return status_id;
-	}
-
-	public void setStatus_id(int status_id) {
-		this.status_id = status_id;
+	public void setInvoice_status_id(Integer invoice_status_id) {
+		this.invoice_status_id = invoice_status_id;
 	}
 
 	public String getFolio_fiscal() {
@@ -171,16 +172,13 @@ public class Invoice implements Serializable {
 		this.modification_date = modification_date;
 	}
 
-	public void setStatus_id(Integer status_id) {
-		this.status_id = status_id;
-	}
 
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Invoice [invoice_id=").append(invoice_id)
 				.append(", invoice_date=").append(invoice_date)
-				.append(", status_id=").append(status_id)
+				.append(", invoice_status_id=").append(invoice_status_id)
 				.append(", folio_fiscal=").append(folio_fiscal)
 				.append(", certificado_sat=").append(certificado_sat)
 				.append(", fecha_hora_emision=").append(fecha_hora_emision)

@@ -11,6 +11,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -32,7 +33,7 @@ public class Shopping implements Serializable {
 	@Column
 	private Integer sucursal_id;
 	@Column
-	private Integer status_id;
+	private Integer shopping_status_id;
 	@Column
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date created_date;
@@ -46,7 +47,8 @@ public class Shopping implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date purchase_date;
 	
-	@OneToMany(mappedBy = "shopping", fetch =FetchType.EAGER,cascade = CascadeType.ALL)
+	@OneToMany(fetch =FetchType.EAGER,cascade = CascadeType.ALL)
+	@JoinColumn(name = "shopping_id",nullable = false)
 	private List<ShoppingDetail> shoppingDetails;
 	
 	
@@ -73,13 +75,7 @@ public class Shopping implements Serializable {
 	}
 	public void setSucursal_id(Integer sucursal_id) {
 		this.sucursal_id = sucursal_id;
-	}
-	public Integer getStatus_id() {
-		return status_id;
-	}
-	public void setStatus_id(Integer status_id) {
-		this.status_id = status_id;
-	}
+	}	
 	public Date getCreated_date() {
 		return created_date;
 	}
@@ -118,7 +114,6 @@ public class Shopping implements Serializable {
 				.append(", provider_id=").append(provider_id)
 				.append(", employee_id=").append(employee_id)
 				.append(", sucursal_id=").append(sucursal_id)
-				.append(", status_id=").append(status_id)
 				.append(", created_date=").append(created_date)
 				.append(", delivery_date=").append(delivery_date)
 				.append(", modification_date=").append(modification_date)

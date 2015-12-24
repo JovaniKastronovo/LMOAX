@@ -30,8 +30,10 @@ public class ProductLot implements Serializable {
 	@Column
 	private double current_stock;
 	@Column
+	@Temporal(TemporalType.DATE)
 	private Date date_of_manufacture;
 	@Column
+	@Temporal(TemporalType.DATE)
 	private Date expiration_date;
 	@Column
 	@Temporal(TemporalType.TIMESTAMP)

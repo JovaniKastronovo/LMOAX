@@ -32,7 +32,7 @@ public class ProductSucursal implements Serializable {
 	@Column
 	private Integer employee_id;
 	@Column
-	private Integer status_id;
+	private Integer product_status_id;
 	@Column
 	private double purchase_price;
 	@Column
@@ -77,13 +77,13 @@ public class ProductSucursal implements Serializable {
 	public void setProvider_id(Integer provider_id) {
 		this.provider_id = provider_id;
 	}
-
-	public Integer getStatus_id() {
-		return status_id;
+	
+	public Integer getProduct_status_id() {
+		return product_status_id;
 	}
 
-	public void setStatus_id(Integer status_id) {
-		this.status_id = status_id;
+	public void setProduct_status_id(Integer product_status_id) {
+		this.product_status_id = product_status_id;
 	}
 
 	public double getPurchase_price() {
@@ -150,7 +150,7 @@ public class ProductSucursal implements Serializable {
 				.append(sucursal_id).append(", price=").append(price)
 				.append(", stock=").append(stock).append(", provider_id=")
 				.append(provider_id).append(", employee_id=")
-				.append(employee_id).append(", status_id=").append(status_id)
+				.append(employee_id).append(", product_status_id=").append(product_status_id)
 				.append(", purchase_price=").append(purchase_price)
 				.append(", min_stock=").append(min_stock)
 				.append(", max_stock=").append(max_stock).append(", location=")

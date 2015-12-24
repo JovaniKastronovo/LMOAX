@@ -36,6 +36,8 @@ public class Customer implements Serializable {
 	@Column
 	private String last_name;
 	@Column
+	private String second_last_name;
+	@Column
 	private String email;
 	@Column
 	@Temporal(TemporalType.DATE)
@@ -43,15 +45,17 @@ public class Customer implements Serializable {
 	@Column
 	private Character sex;
 	@Column
+	private String position;
+	@Column
 	private String agent;
 	@Column
 	private String rfc;
 	@Column
 	private String curp;
 	@Column
-	private double retention_tax;
+	private boolean retention_tax;
 	@Column
-	private double breakdown_IEPS;
+	private boolean breakdown_IEPS;
 	@Column
 	private double credit_limit;
 	@Column
@@ -59,7 +63,7 @@ public class Customer implements Serializable {
 	@Column
 	private Integer employee_id;
 	@Column
-	private Integer status_id;
+	private Integer customer_status_id;
 	@Column
 	private Integer company_id;
 	@Column
@@ -82,155 +86,217 @@ public class Customer implements Serializable {
 	joinColumns ={ @JoinColumn(name = "customer_id")},
 	inverseJoinColumns ={ @JoinColumn(name = "phone_id") })
 	private List<Phone> phones;
-	
+
 	public Integer getCustomer_id() {
 		return customer_id;
 	}
+
 	public void setCustomer_id(Integer customer_id) {
 		this.customer_id = customer_id;
 	}
+
 	public String getFirst_name() {
 		return first_name;
 	}
+
 	public void setFirst_name(String first_name) {
 		this.first_name = first_name;
 	}
+
 	public String getMiddle_name() {
 		return middle_name;
 	}
+
 	public void setMiddle_name(String middle_name) {
 		this.middle_name = middle_name;
 	}
+
 	public String getLast_name() {
 		return last_name;
 	}
+
 	public void setLast_name(String last_name) {
 		this.last_name = last_name;
 	}
+
+	public String getSecond_last_name() {
+		return second_last_name;
+	}
+
+	public void setSecond_last_name(String second_last_name) {
+		this.second_last_name = second_last_name;
+	}
+
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
-	}	
+	}
+
 	public Date getBirth_date() {
 		return birth_date;
 	}
+
 	public void setBirth_date(Date birth_date) {
 		this.birth_date = birth_date;
 	}
+
 	public Character getSex() {
 		return sex;
 	}
+
 	public void setSex(Character sex) {
 		this.sex = sex;
 	}
+
+	public String getPosition() {
+		return position;
+	}
+
+	public void setPosition(String position) {
+		this.position = position;
+	}
+
 	public String getAgent() {
 		return agent;
 	}
+
 	public void setAgent(String agent) {
 		this.agent = agent;
 	}
+
 	public String getRfc() {
 		return rfc;
 	}
+
 	public void setRfc(String rfc) {
 		this.rfc = rfc;
 	}
+
 	public String getCurp() {
 		return curp;
 	}
+
 	public void setCurp(String curp) {
 		this.curp = curp;
 	}
-	public double getRetention_tax() {
+
+	public boolean isRetention_tax() {
 		return retention_tax;
 	}
-	public void setRetention_tax(double retention_tax) {
+
+	public void setRetention_tax(boolean retention_tax) {
 		this.retention_tax = retention_tax;
 	}
-	public double getBreakdown_IEPS() {
+
+	public boolean isBreakdown_IEPS() {
 		return breakdown_IEPS;
 	}
-	public void setBreakdown_IEPS(double breakdown_IEPS) {
+
+	public void setBreakdown_IEPS(boolean breakdown_IEPS) {
 		this.breakdown_IEPS = breakdown_IEPS;
 	}
+
 	public double getCredit_limit() {
 		return credit_limit;
 	}
+
 	public void setCredit_limit(double credit_limit) {
 		this.credit_limit = credit_limit;
 	}
+
 	public int getCredit_days() {
 		return credit_days;
 	}
+
 	public void setCredit_days(int credit_days) {
 		this.credit_days = credit_days;
 	}
+
 	public Integer getEmployee_id() {
 		return employee_id;
 	}
+
 	public void setEmployee_id(Integer employee_id) {
 		this.employee_id = employee_id;
 	}
+
+	public Integer getCustomer_status_id() {
+		return customer_status_id;
+	}
+
+	public void setCustomer_status_id(Integer customer_status_id) {
+		this.customer_status_id = customer_status_id;
+	}
+
 	public Integer getCompany_id() {
 		return company_id;
 	}
+
 	public void setCompany_id(Integer company_id) {
 		this.company_id = company_id;
 	}
+
 	public Integer getSale_price_id() {
 		return sale_price_id;
 	}
+
 	public void setSale_price_id(Integer sale_price_id) {
 		this.sale_price_id = sale_price_id;
 	}
+
 	public Date getCreated_date() {
 		return created_date;
 	}
+
 	public void setCreated_date(Date created_date) {
 		this.created_date = created_date;
 	}
+
 	public Date getModification_date() {
 		return modification_date;
 	}
+
 	public void setModification_date(Date modification_date) {
 		this.modification_date = modification_date;
 	}
-	public Integer getStatus_id() {
-		return status_id;
-	}
-	public void setStatus_id(Integer status_id) {
-		this.status_id = status_id;
-	}
+
 	public List<Address> getAddress() {
 		return address;
 	}
+
 	public void setAddress(List<Address> address) {
 		this.address = address;
 	}
+
 	public List<Phone> getPhones() {
 		return phones;
 	}
+
 	public void setPhones(List<Phone> phones) {
 		this.phones = phones;
 	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Customer [customer_id=").append(customer_id)
 				.append(", first_name=").append(first_name)
 				.append(", middle_name=").append(middle_name)
-				.append(", last_name=").append(last_name).append(", email=")
-				.append(email).append(", birth_date=").append(birth_date)
-				.append(", sex=").append(sex).append(", agent=").append(agent)
-				.append(", rfc=").append(rfc).append(", curp=").append(curp)
-				.append(", retention_tax=").append(retention_tax)
+				.append(", last_name=").append(last_name)
+				.append(", second_last_name=").append(second_last_name)
+				.append(", email=").append(email).append(", birth_date=")
+				.append(birth_date).append(", sex=").append(sex)
+				.append(", position=").append(position).append(", agent=")
+				.append(agent).append(", rfc=").append(rfc).append(", curp=")
+				.append(curp).append(", retention_tax=").append(retention_tax)
 				.append(", breakdown_IEPS=").append(breakdown_IEPS)
 				.append(", credit_limit=").append(credit_limit)
 				.append(", credit_days=").append(credit_days)
 				.append(", employee_id=").append(employee_id)
-				.append(", status_id=").append(status_id)
+				.append(", customer_status_id=").append(customer_status_id)
 				.append(", company_id=").append(company_id)
 				.append(", sale_price_id=").append(sale_price_id)
 				.append(", created_date=").append(created_date)
@@ -238,5 +304,6 @@ public class Customer implements Serializable {
 				.append(", address=").append(address).append(", phones=")
 				.append(phones).append("]");
 		return builder.toString();
-	}	
+	}
+	
 }

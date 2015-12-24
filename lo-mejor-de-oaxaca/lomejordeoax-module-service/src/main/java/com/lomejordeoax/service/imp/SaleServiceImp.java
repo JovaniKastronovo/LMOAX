@@ -71,6 +71,7 @@ public class SaleServiceImp implements SaleService {
 		}
 	}
 
+	@Transactional(readOnly = true)
 	@Override
 	public Sale saleById(Integer saleId) throws BusinessException {
 		if(saleId!=null){

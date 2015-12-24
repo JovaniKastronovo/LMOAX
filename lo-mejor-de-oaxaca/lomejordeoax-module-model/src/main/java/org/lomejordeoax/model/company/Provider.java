@@ -50,7 +50,7 @@ public class Provider implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date modification_date;
 	@Column
-	private Integer status_id;
+	private Integer provider_status_id;
 	@Column
 	private String agent;
 	@Column
@@ -133,12 +133,12 @@ public class Provider implements Serializable {
 	}
 	public void setModification_date(Date modification_date) {
 		this.modification_date = modification_date;
+	}	
+	public Integer getProvider_status_id() {
+		return provider_status_id;
 	}
-	public Integer getStatus_id() {
-		return status_id;
-	}
-	public void setStatus_id(Integer status_id) {
-		this.status_id = status_id;
+	public void setProvider_status_id(Integer provider_status_id) {
+		this.provider_status_id = provider_status_id;
 	}
 	public String getAgent() {
 		return agent;
@@ -192,8 +192,8 @@ public class Provider implements Serializable {
 				.append(logo).append(", commercial_business=")
 				.append(commercial_business).append(", created_date=")
 				.append(created_date).append(", modification_date=")
-				.append(modification_date).append(", status_id=")
-				.append(status_id).append(", agent=").append(agent)
+				.append(modification_date).append(", provider_status_id=")
+				.append(provider_status_id).append(", agent=").append(agent)
 				.append(", credit_limit=").append(credit_limit)
 				.append(", credit_days=").append(credit_days)
 				.append(", company_id=").append(company_id)

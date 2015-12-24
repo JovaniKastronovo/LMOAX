@@ -27,11 +27,11 @@ public class UpdateSaleTest {
 		Assert.assertNotNull(saleToUpd);
 		Assert.assertNotNull("The sale id shoult not be null", saleToUpd);
 		//Update sale status
-		saleToUpd.setStatus_id(SaleStatus.ACTIVE.getStatusId());
+		saleToUpd.setSale_status_id(SaleStatus.ACTIVE.getStatusId());
 		saleService.updSale(saleToUpd);
 		Assert.assertTrue("Status it's not equals to "+SaleStatus.ACTIVE.getStatusId(),
-				SaleStatus.ACTIVE.getStatusId().equals(saleToUpd.getStatus_id()));
-		Assert.assertNotNull(saleToUpd.getStatus_id());
+				SaleStatus.ACTIVE.getStatusId().equals(saleToUpd.getSale_status_id()));
+		Assert.assertNotNull(saleToUpd.getSale_status_id());
 	}
 	
 	public Sale getSale(Integer saleId) throws BusinessException{

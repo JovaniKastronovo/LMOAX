@@ -19,6 +19,8 @@ public class Town implements Serializable {
 	private Integer town_id;
 	@Column
 	private String name;
+	@Column
+	private String type;
 	@ManyToOne
 	@JoinColumn(name = "state_id")
 	private State state;
@@ -39,12 +41,19 @@ public class Town implements Serializable {
 	}
 	public void setState(State state) {
 		this.state = state;
+	}	
+	
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
 	}
 	
 	@Override
 	public String toString() {
-		return "Town [town_id=" + town_id + ", name=" + name + ", state="
-				+ state + "]";
-	}	
+		return "Town [town_id=" + town_id + ", name=" + name + ", type=" + type
+				+ ", state=" + state + "]";
+	}
 
 }

@@ -29,10 +29,6 @@ public class Phone implements Serializable {
 	private String extension;
 	@Column
 	private boolean mobile;
-	@Column
-	private Integer status_id;
-	@Column
-	private Integer company_id;
 	@ManyToOne
 	@JoinColumn(name="phone_type_id")
 	private PhoneType phoneType;
@@ -67,18 +63,7 @@ public class Phone implements Serializable {
 	public void setMobile(boolean mobile) {
 		this.mobile = mobile;
 	}
-	public Integer getStatus_id() {
-		return status_id;
-	}
-	public void setStatus_id(Integer status_id) {
-		this.status_id = status_id;
-	}
-	public Integer getCompany_id() {
-		return company_id;
-	}
-	public void setCompany_id(Integer company_id) {
-		this.company_id = company_id;
-	}
+	
 	public PhoneType getPhoneType() {
 		return phoneType;
 	}
@@ -102,9 +87,8 @@ public class Phone implements Serializable {
 	public String toString() {
 		return "Phone [phone_id=" + phone_id + ", number=" + number
 				+ ", extension=" + extension + ", mobile=" + mobile
-				+ ", status_id=" + status_id + ", company_id=" + company_id
 				+ ", phoneType=" + phoneType + ", created_date=" + created_date
 				+ ", modification_date=" + modification_date + "]";
-	}	
+	}		
 	
 }

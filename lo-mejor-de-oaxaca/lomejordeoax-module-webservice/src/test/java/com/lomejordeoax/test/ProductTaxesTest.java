@@ -21,7 +21,6 @@ public class ProductTaxesTest {
 
 	private static String PRODUCT_ID = "ABALAC8";
 	private static Integer TAXE_ID = 1;
-	private static Integer STATUS_ID = 1;
 	
 	@Autowired
 	private ProductTaxeService productTaxeService;	
@@ -47,7 +46,6 @@ public class ProductTaxesTest {
 		productTaxes.setProduct_id(PRODUCT_ID);
 		productTaxes.setTaxes(taxe);
 		productTaxes.setOrderr(1);
-		productTaxes.setStatus_id(STATUS_ID);
 		productTaxes.setCreated_date(new Date());
 		productTaxes.setModification_date(new Date());
 	}

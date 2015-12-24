@@ -13,7 +13,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name="ct_product")
+@Table(name="ta_product")
 public class Product implements Serializable {
 
 	private static final long serialVersionUID = -7687950841206027214L;
@@ -45,9 +45,7 @@ public class Product implements Serializable {
 	private Date created_date;	
 	@Column
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date modification_date;		
-	@Column
-	private int status_id;
+	private Date modification_date;	
 	
 	@ManyToOne
 	@JoinColumn(name="category_id")
@@ -139,12 +137,6 @@ public class Product implements Serializable {
 	public void setModification_date(Date modification_date) {
 		this.modification_date = modification_date;
 	}	
-	public int getStatus_id() {
-		return status_id;
-	}
-	public void setStatus_id(int status_id) {
-		this.status_id = status_id;
-	}
 	public Category getCategory() {
 		return category;
 	}

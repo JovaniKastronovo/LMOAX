@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.lomejordeoax.model.product.Product;
+
 @Entity
 @Table(name = "ta_shopping_detail")
 public class ShoppingDetail implements Serializable {
@@ -21,17 +23,14 @@ public class ShoppingDetail implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer shopping_detail_id;
 	@Column
-	private String product_id;
-	@Column
 	private double quantity;
 	@Column
 	private double price;
 	@Column
 	private double discount;
-	
 	@ManyToOne
-	@JoinColumn(name = "shopping_id")
-	private Shopping shopping;
+	@JoinColumn(name = "product_id")
+	private Product product;
 	
 	public Integer getShopping_detail_id() {
 		return shopping_detail_id;
@@ -39,12 +38,7 @@ public class ShoppingDetail implements Serializable {
 	public void setShopping_detail_id(Integer shopping_detail_id) {
 		this.shopping_detail_id = shopping_detail_id;
 	}
-	public String getProduct_id() {
-		return product_id;
-	}
-	public void setProduct_id(String product_id) {
-		this.product_id = product_id;
-	}
+	
 	public double getQuantity() {
 		return quantity;
 	}
@@ -63,23 +57,22 @@ public class ShoppingDetail implements Serializable {
 	public void setDiscount(double discount) {
 		this.discount = discount;
 	}
-	public Shopping getShopping() {
-		return shopping;
+	public Product getProduct() {
+		return product;
 	}
-	public void setShopping(Shopping shopping) {
-		this.shopping = shopping;
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 	
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("ShoppingDetail [shopping_detail_id=")
-				.append(shopping_detail_id).append(", product_id=")
-				.append(product_id).append(", quantity=").append(quantity)
-				.append(", price=").append(price).append(", discount=")
-				.append(discount).append(", shopping=").append(shopping)
-				.append("]");
+				.append(shopping_detail_id).append(", quantity=")
+				.append(quantity).append(", price=").append(price)
+				.append(", discount=").append(discount).append(", product=")
+				.append(product).append("]");
 		return builder.toString();
-	}
+	}		
 
 }

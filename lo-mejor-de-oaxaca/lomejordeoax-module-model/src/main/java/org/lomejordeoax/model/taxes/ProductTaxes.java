@@ -31,8 +31,6 @@ public class ProductTaxes implements Serializable {
 	@Column
 	private int orderr;
 	@Column
-	private Integer status_id;
-	@Column
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date created_date;	
 	@Column
@@ -58,12 +56,6 @@ public class ProductTaxes implements Serializable {
 	public void setOrderr(int orderr) {
 		this.orderr = orderr;
 	}
-	public Integer getStatus_id() {
-		return status_id;
-	}
-	public void setStatus_id(Integer status_id) {
-		this.status_id = status_id;
-	}
 	public Date getCreated_date() {
 		return created_date;
 	}
@@ -87,9 +79,8 @@ public class ProductTaxes implements Serializable {
 	public String toString() {
 		return "ProductTaxes [product_taxe_id=" + product_taxe_id
 				+ ", product_id=" + product_id + ", taxes=" + taxes
-				+ ", order=" + orderr + ", status_id=" + status_id
-				+ ", created_date=" + created_date + ", modification_date="
-				+ modification_date + "]";
-	}	
+				+ ", orderr=" + orderr + ", created_date=" + created_date
+				+ ", modification_date=" + modification_date + "]";
+	}		
 	
 }

@@ -56,8 +56,6 @@ public class Address implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date modification_date;
 	@Column
-	private Integer status_id;
-	@Column
 	private Integer neighborhood_id;
 	@Column
 	private Integer company_id;
@@ -152,12 +150,6 @@ public class Address implements Serializable {
 	public void setModification_date(Date modification_date) {
 		this.modification_date = modification_date;
 	}
-	public Integer getStatus_id() {
-		return status_id;
-	}
-	public void setStatus_id(Integer status_id) {
-		this.status_id = status_id;
-	}
 	public Integer getNeighborhood_id() {
 		return neighborhood_id;
 	}
@@ -188,7 +180,6 @@ public class Address implements Serializable {
 				.append(", description=").append(description)
 				.append(", created_date=").append(created_date)
 				.append(", modification_date=").append(modification_date)
-				.append(", status_id=").append(status_id)
 				.append(", neighborhood_id=").append(neighborhood_id)
 				.append(", company_id=").append(company_id).append("]");
 		return builder.toString();
