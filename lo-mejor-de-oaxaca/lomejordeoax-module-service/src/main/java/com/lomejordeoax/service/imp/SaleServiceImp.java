@@ -47,7 +47,7 @@ public class SaleServiceImp implements SaleService {
 	@Override
 	public List<Sale> getSalesByStatus(SaleStatus status) throws BusinessException {
 		try {
-			return saleDao.getSalesByStatus(status);
+			return saleDao.getSalesByStatus(status.getStatusId());
 		} catch (DataException e) {
 			throw new BusinessException("Error getting sales by statu id ="+status.getStatusId(),e);
 		}
