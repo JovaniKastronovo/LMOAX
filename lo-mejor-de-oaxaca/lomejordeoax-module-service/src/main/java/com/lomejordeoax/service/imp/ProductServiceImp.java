@@ -22,10 +22,10 @@ public class ProductServiceImp implements ProductService {
 	private static Logger logger = Logger.getLogger(ProductServiceImp.class);
 
 	@Override
-	public int getNextProductId()throws BusinessException{
+	public int getNextProductId(Integer companyId)throws BusinessException{
 		int nextId;
 		try {
-			nextId = productDao.getNextProductId();
+			nextId = productDao.getNextProductId(companyId);
 			logger.info("NEXT PRODUCT ID="+nextId);
 			return nextId;
 		} catch (DataException e) {

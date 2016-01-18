@@ -6,7 +6,7 @@ import org.lomejordeoax.model.product.Product;
 import org.lomejordeoax.utilities.exceptions.BusinessException;
 
 public interface ProductService {
-	int getNextProductId()throws BusinessException;
+	int getNextProductId(Integer companyId)throws BusinessException;
 	void saveProduct(Product newProduct)throws BusinessException;
 	void updateProduct(Product updProduct)throws BusinessException;
 	Product findProductById(String productId)throws BusinessException;

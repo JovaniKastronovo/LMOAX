@@ -14,12 +14,14 @@ import com.lomejordeoax.service.ProductService;
 @ContextConfiguration(locations={"classpath:spring-config.xml"})
 public class GetNextProductIdTest {
 	
+	private static int COMPANY_ID = 1;
+	
 	@Autowired
 	private ProductService productService;
 	
 	@Test
 	public void getNextProductId() throws BusinessException{
-		int nextProductId=productService.getNextProductId();
+		int nextProductId=productService.getNextProductId(COMPANY_ID);
 		Assert.assertTrue("Tiene que ser mayor que cero", nextProductId>0);
 	}
 

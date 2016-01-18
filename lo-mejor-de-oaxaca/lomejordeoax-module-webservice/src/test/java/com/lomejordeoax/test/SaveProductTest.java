@@ -30,6 +30,7 @@ public class SaveProductTest {
 	private static Integer UNIT_MEASURE_ID = 1;
 	private static String PRODUCT_NAME = "Chocolate";
 	private static String SHORT_NAME = "Chocol";
+	private static int COMPANY_ID = 1;
 	
 	
 	@Autowired
@@ -109,7 +110,7 @@ public class SaveProductTest {
 		productSucursal.setProduct_status_id(1);
 	}
 	private int getNextProductId() throws BusinessException{
-		int nextProductId = productService.getNextProductId();
+		int nextProductId = productService.getNextProductId(COMPANY_ID);
 		Assert.assertTrue("The next product id should be greater than zero.", nextProductId>0);
 		return nextProductId;
 	}

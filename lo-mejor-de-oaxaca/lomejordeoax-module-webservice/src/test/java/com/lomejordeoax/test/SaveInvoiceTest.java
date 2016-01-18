@@ -20,7 +20,7 @@ import com.lomejordeoax.service.InvoiceService;
 @ContextConfiguration(locations={"classpath:spring-config.xml"})
 public class SaveInvoiceTest {
 		
-	private static final Integer SALE_ID = 4;
+	private static final Integer SALE_ID = 2;
 
 	@Autowired
 	private InvoiceService invoiceService;

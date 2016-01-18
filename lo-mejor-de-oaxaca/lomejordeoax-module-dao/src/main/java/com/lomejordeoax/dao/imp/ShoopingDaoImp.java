@@ -2,6 +2,7 @@ package com.lomejordeoax.dao.imp;
 
 import java.util.List;
 
+import org.lomejordeoax.model.sales.enums.ShoppingStatus;
 import org.lomejordeoax.model.shopping.Shopping;
 import org.lomejordeoax.utilities.exceptions.DataException;
 import org.springframework.stereotype.Repository;
@@ -19,9 +20,9 @@ public class ShoopingDaoImp extends HGenericDaoImp<Shopping, Integer> implements
 	private static final String SHOPPING_BY_EMPLOYEE_ID = "from Shopping s where s.employee_id = ?";
 
 	@Override
-	public List<Shopping> shoppingByStatus(Integer shoppingStatusId)
+	public List<Shopping> shoppingByStatus(ShoppingStatus status)
 			throws DataException {
-		List<?> result= getHibernateTemplate().find(SHOPPING_BY_STATUS_HQL, shoppingStatusId);
+		List<?> result= getHibernateTemplate().find(SHOPPING_BY_STATUS_HQL, status.getStatusId());
 		return (List<Shopping>) result;
 	}
 

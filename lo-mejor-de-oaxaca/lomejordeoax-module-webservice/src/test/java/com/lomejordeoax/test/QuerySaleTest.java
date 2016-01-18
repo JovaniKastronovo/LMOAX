@@ -1,5 +1,7 @@
 package com.lomejordeoax.test;
 
+import java.util.List;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,6 +19,8 @@ import com.lomejordeoax.service.SaleService;
 public class QuerySaleTest {
 	
 	private static Integer SALE_ID = 6;
+	private static Integer CUSTOMER_ID = 1;
+	private static Integer SUCURSAL_ID = 1;
 	
 	@Autowired
 	private SaleService saleService;
@@ -24,7 +28,6 @@ public class QuerySaleTest {
 	@Test
 	public void updSale() throws BusinessException{
 		Sale saleToUpd = getSale(SALE_ID);
-		Assert.assertNotNull(saleToUpd);
 		Assert.assertNotNull("The sale id shoult not be null", saleToUpd);
 		//Update sale status
 		saleToUpd.setSale_status_id(SaleStatus.ACTIVE.getStatusId());
@@ -36,6 +39,24 @@ public class QuerySaleTest {
 	
 	public Sale getSale(Integer saleId) throws BusinessException{
 		return saleService.saleById(saleId);
-	}	
+	}
+		
+	@Test
+	public void saleByStatus() throws BusinessException{
+		List<Sale> saleList= saleService.getSalesByStatus(SaleStatus.ACTIVE);
+		Assert.assertNotNull(saleList);
+	}
+	
+	@Test
+	public void saleByCustomer() throws BusinessException{
+		List<Sale> saleList= saleService.getSalesByCustomerId(CUSTOMER_ID);
+		Assert.assertNotNull(saleList);
+	}
+	
+	@Test
+	public void saleBySucursal() throws BusinessException{
+		List<Sale> saleList= saleService.getSalesBySucursal(SUCURSAL_ID);
+		Assert.assertNotNull(saleList);
+	}
 	
 }

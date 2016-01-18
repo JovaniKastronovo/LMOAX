@@ -58,7 +58,7 @@ public class SaleServiceImp implements SaleService {
 		try {
 			return saleDao.getSalesBySucursal(sucursalId);
 		} catch (DataException e) {
-			throw new BusinessException("Error getting sales by productId = "+sucursalId,e);
+			throw new BusinessException("Error getting sales by sucursalId = "+sucursalId,e);
 		}
 	}
 
@@ -80,7 +80,7 @@ public class SaleServiceImp implements SaleService {
 				return sale;
 			} catch (DataException e) {
 				logger.error("Sale "+saleId+" not found",e);
-				throw new BusinessException("Sale no found",e);
+				throw new BusinessException("Sale not found",e);
 			}
 		}else
 			throw new BusinessException("Sale Id required");

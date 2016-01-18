@@ -12,10 +12,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import org.lomejordeoax.model.sales.MethodOfPayment;
 
 @Entity
 @Table(name = "ta_shopping")
@@ -40,6 +43,9 @@ public class Shopping implements Serializable {
 	@Column
 	@Temporal(TemporalType.DATE)
 	private Date delivery_date;
+	@ManyToOne
+	@JoinColumn(name="method_payment_id")
+	private MethodOfPayment methodOfPayment;
 	@Column
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date modification_date;
@@ -106,6 +112,18 @@ public class Shopping implements Serializable {
 	public void setShoppingDetails(List<ShoppingDetail> shoppingDetails) {
 		this.shoppingDetails = shoppingDetails;
 	}
+	public Integer getShopping_status_id() {
+		return shopping_status_id;
+	}
+	public void setShopping_status_id(Integer shopping_status_id) {
+		this.shopping_status_id = shopping_status_id;
+	}
+	public MethodOfPayment getMethodOfPayment() {
+		return methodOfPayment;
+	}
+	public void setMethodOfPayment(MethodOfPayment methodOfPayment) {
+		this.methodOfPayment = methodOfPayment;
+	}
 	
 	@Override
 	public String toString() {
@@ -114,13 +132,16 @@ public class Shopping implements Serializable {
 				.append(", provider_id=").append(provider_id)
 				.append(", employee_id=").append(employee_id)
 				.append(", sucursal_id=").append(sucursal_id)
+				.append(", shopping_status_id=").append(shopping_status_id)
 				.append(", created_date=").append(created_date)
 				.append(", delivery_date=").append(delivery_date)
+				.append(", methodOfPayment=").append(methodOfPayment)
 				.append(", modification_date=").append(modification_date)
 				.append(", purchase_date=").append(purchase_date)
 				.append(", shoppingDetails=").append(shoppingDetails)
 				.append("]");
 		return builder.toString();
 	}	
+	
 	
 }
