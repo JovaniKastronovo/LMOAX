@@ -73,7 +73,7 @@ public class SaveShoppingTest {
 		shopDetails1.setDiscount(0);
 		//Add product
 		Product product1 = new Product();
-		product1.setProduct_id("ABALAC9");
+		product1.setProduct_id(1);
 		shopDetails1.setProduct(product1);
 		
 		
@@ -83,7 +83,7 @@ public class SaveShoppingTest {
 		shopDetails2.setDiscount(10);
 		//Add product
 		Product product2 = new Product();
-		product2.setProduct_id("ABALAC8");
+		product2.setProduct_id(2);
 		shopDetails2.setProduct(product2);
 				
 		shoppingDetailList.add(shopDetails1);

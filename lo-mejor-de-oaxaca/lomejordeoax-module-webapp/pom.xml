@@ -18,4 +18,11 @@
     <finalName>lomejordeoax-module-webapp</finalName>
   </build>
   
+  <dependencies>
+  	<dependency>
+  		<groupId>com.lomejordeoax.mx</groupId>
+    	<artifactId>lomejordeoax-module-model</artifactId>
+    	<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  </dependencies>  
 </project>

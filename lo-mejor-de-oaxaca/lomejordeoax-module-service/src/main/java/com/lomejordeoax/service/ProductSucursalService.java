@@ -9,6 +9,6 @@ public interface ProductSucursalService {
 	void saveProdSuc(ProductSucursal newProdSuc)throws BusinessException;
 	void updateProdSuc(ProductSucursal updProdSuc)throws BusinessException;
 	List<ProductSucursal> getProdBySucursal(Integer sucursalId)throws BusinessException;
-	List<ProductSucursal> findProdSucById(String productId, Integer sucursalId)throws BusinessException;	
+	List<ProductSucursal> findProdSucById(Integer productId, Integer sucursalId)throws BusinessException;	
 	List<ProductSucursal> getProdSucByStock(double minStock)throws BusinessException;
 }

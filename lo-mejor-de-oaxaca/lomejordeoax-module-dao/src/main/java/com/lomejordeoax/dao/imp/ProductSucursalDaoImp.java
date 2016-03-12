@@ -26,7 +26,7 @@ public class ProductSucursalDaoImp extends HGenericDaoImp<ProductSucursal, Integ
 	}
 
 	@Override
-	public  List<ProductSucursal> findProdSucById(String productId, Integer sucursalId)
+	public  List<ProductSucursal> findProdSucById(Integer productId, Integer sucursalId)
 			throws BusinessException {
 		List<?> result = getHibernateTemplate().find(PRODUCT_SUCURSAL_BY_ID, productId,sucursalId);
 		return ((List<ProductSucursal>) result);

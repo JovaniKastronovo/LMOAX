@@ -5,6 +5,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -19,7 +21,8 @@ public class Product implements Serializable {
 	private static final long serialVersionUID = -7687950841206027214L;
 	
 	@Id
-	private String product_id;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer product_id;
 	@Column
 	private String product_key;
 	@Column
@@ -41,6 +44,8 @@ public class Product implements Serializable {
 	@Column
 	private int granel;
 	@Column
+	private Integer company_id;
+	@Column
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date created_date;	
 	@Column
@@ -57,12 +62,12 @@ public class Product implements Serializable {
 	
 	@ManyToOne
 	@JoinColumn(name="unit_buy_id")
-	private UnitMeasure unitBuy;
+	private UnitMeasure unitBuy;	
 	
-	public String getProduct_id() {
+	public Integer getProduct_id() {
 		return product_id;
 	}
-	public void setProduct_id(String product_id) {
+	public void setProduct_id(Integer product_id) {
 		this.product_id = product_id;
 	}
 	public String getProduct_key() {
@@ -155,22 +160,33 @@ public class Product implements Serializable {
 	public void setUnitBuy(UnitMeasure unitBuy) {
 		this.unitBuy = unitBuy;
 	}
+	public Integer getCompany_id() {
+		return company_id;
+	}
+	public void setCompany_id(Integer company_id) {
+		this.company_id = company_id;
+	}
 	
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Product [product_id=");	builder.append(product_id);	builder.append(", product_key=");
-		builder.append(product_key); builder.append(", name=");	builder.append(name); builder.append(", description=");
-		builder.append(description); builder.append(", abbrevation="); builder.append(abbrevation);
-		builder.append(", service="); builder.append(service); builder.append(", factor=");
-		builder.append(factor);	builder.append(", lot="); builder.append(lot); builder.append(", net_price=");
-		builder.append(net_price); builder.append(", prescription="); builder.append(prescription);
-		builder.append(", granel="); builder.append(granel); builder.append(", created_date=");
-		builder.append(created_date); builder.append(", modification_date="); builder.append(modification_date);
-		builder.append(", category="); builder.append(category); builder.append(", departament=");
-		builder.append(", unitSale="); builder.append(unitSale);
-		builder.append(", unitBuy="); builder.append(unitBuy); builder.append("]");
+		builder.append("Product [product_id=").append(product_id)
+				.append(", product_key=").append(product_key).append(", name=")
+				.append(name).append(", description=").append(description)
+				.append(", abbrevation=").append(abbrevation)
+				.append(", service=").append(service).append(", factor=")
+				.append(factor).append(", lot=").append(lot)
+				.append(", net_price=").append(net_price)
+				.append(", prescription=").append(prescription)
+				.append(", granel=").append(granel).append(", company_id=")
+				.append(company_id).append(", created_date=")
+				.append(created_date).append(", modification_date=")
+				.append(modification_date).append(", category=")
+				.append(category).append(", unitSale=").append(unitSale)
+				.append(", unitBuy=").append(unitBuy).append("]");
 		return builder.toString();
-	}	
+	}
+	
+	
 	
 }

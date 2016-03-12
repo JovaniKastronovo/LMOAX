@@ -58,7 +58,7 @@ public class ProductServiceImp implements ProductService {
 
 	@Transactional(readOnly = true)
 	@Override
-	public Product findProductById(String productId)throws BusinessException{
+	public Product findProductById(Integer productId)throws BusinessException{
 		try {
 			Product product= productDao.find(productId);
 			return product;
@@ -69,7 +69,7 @@ public class ProductServiceImp implements ProductService {
 	}
 
 	@Override
-	public boolean deleteProduct(String productId)throws BusinessException{
+	public boolean deleteProduct(Integer productId)throws BusinessException{
 		Product product = new Product();
 		product.setProduct_id(productId);
 		try {
@@ -86,6 +86,18 @@ public class ProductServiceImp implements ProductService {
 	public List<Product> findAllProduct() throws BusinessException {
 		try {
 			List<Product> products= productDao.findAll();
+			return products;
+		} catch (DataException e) {
+			throw new BusinessException("The findAllProduct failed",e);
+		}
+	}
+
+	@Transactional(readOnly = true)
+	@Override
+	public Product findProductByKey(String productKey, Integer companyId)
+			throws BusinessException {
+		try {
+			Product products= productDao.findProdByKey(productKey, companyId);
 			return products;
 		} catch (DataException e) {
 			throw new BusinessException("The findAllProduct failed",e);

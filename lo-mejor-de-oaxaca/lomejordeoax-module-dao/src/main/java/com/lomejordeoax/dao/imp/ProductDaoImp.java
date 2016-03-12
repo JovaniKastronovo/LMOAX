@@ -1,5 +1,7 @@
 package com.lomejordeoax.dao.imp;
 
+import java.util.List;
+
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.lomejordeoax.model.product.Product;
@@ -11,8 +13,10 @@ import com.lomejordeoax.dao.generic.imp.HGenericDaoImp;
 
 
 @Repository("productDao")
-public class ProductDaoImp extends HGenericDaoImp<Product, String> implements ProductDao{
+public class ProductDaoImp extends HGenericDaoImp<Product, Integer> implements ProductDao{
 
+	private static final String PRODUCTKEY_COMPANY_HQL = "from Product p where p.product_key = ?";
+	
 	@Override
 	public Integer getNextProductId(Integer companyId) throws DataException {
 		try {
@@ -23,6 +27,16 @@ public class ProductDaoImp extends HGenericDaoImp<Product, String> implements Pr
 		} catch (Exception e) {
 			throw e;
 		}		
+	}
+	
+	@Override
+	public Product findProdByKey(String productKey, Integer companyId)
+			throws DataException {
+		 List<?> productList = getHibernateTemplate().find(PRODUCTKEY_COMPANY_HQL, productKey);
+		 if(productList!=null && productList.size()>0)
+			 return (Product) productList.get(0);
+		 
+		return null;
 	}
 
 }

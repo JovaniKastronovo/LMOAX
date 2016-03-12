@@ -77,7 +77,6 @@ public class SaveProductTest {
 		Assert.assertNotNull(productIdGenerated);
 		Assert.assertTrue("The next product id should be greater than six",productIdGenerated.length()>0);
 		
-		product.setProduct_id(productIdGenerated);
 		product.setProduct_key(productIdGenerated);
 		product.setName(PRODUCT_NAME);
 		product.setDescription(PRODUCT_NAME);
@@ -88,6 +87,7 @@ public class SaveProductTest {
 		product.setNet_price(0);
 		product.setPrescription(0);
 		product.setGranel(1);
+		product.setCompany_id(COMPANY_ID);
 		product.setCreated_date(new Date());
 		product.setModification_date(new Date());
 		product.setUnitBuy(unitM);

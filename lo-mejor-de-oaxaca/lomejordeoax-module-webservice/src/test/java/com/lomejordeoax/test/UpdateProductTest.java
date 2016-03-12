@@ -17,7 +17,7 @@ import com.lomejordeoax.service.ProductSucursalService;
 @ContextConfiguration(locations={"classpath:spring-config.xml"})
 public class UpdateProductTest {
 
-	private static String PRODUCT_ID = "ABALAC8";
+	private static Integer PRODUCT_ID = 1;
 	private static String UPD_DESCRIPTION = "Update product name";
 	private static Integer SUCURSAL_ID = 1;
 	

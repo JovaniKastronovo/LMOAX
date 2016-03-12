@@ -52,7 +52,7 @@ public class ProductSucServiceImp implements ProductSucursalService {
 	}
 
 	@Override
-	public List<ProductSucursal> findProdSucById(String productId,
+	public List<ProductSucursal> findProdSucById(Integer productId,
 			Integer sucursalId) throws BusinessException {
 		return productSucDao.findProdSucById(productId, sucursalId);
 	}

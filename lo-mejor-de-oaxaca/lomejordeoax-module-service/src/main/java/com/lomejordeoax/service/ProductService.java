@@ -9,7 +9,8 @@ public interface ProductService {
 	int getNextProductId(Integer companyId)throws BusinessException;
 	void saveProduct(Product newProduct)throws BusinessException;
 	void updateProduct(Product updProduct)throws BusinessException;
-	Product findProductById(String productId)throws BusinessException;
+	Product findProductById(Integer productId)throws BusinessException;
 	List<Product> findAllProduct()throws BusinessException;
-	boolean deleteProduct(String productId)throws BusinessException;
+	boolean deleteProduct(Integer productId)throws BusinessException;
+	Product findProductByKey(String productKey,Integer companyId)throws BusinessException;
 }
