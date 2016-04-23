@@ -16,8 +16,8 @@
  </servlet>
 
  <servlet-mapping>
-  <servlet-name>mvc-dispatcher</servlet-name>
-  <url-pattern>/*</url-pattern>
+	  <servlet-name>mvc-dispatcher</servlet-name>
+	  <url-pattern>*.html</url-pattern>
  </servlet-mapping>
 
 </web-app>

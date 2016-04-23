@@ -1,0 +1,5 @@
+[
+  "bower_components/modernizr/modernizr.custom.js",
+  "bower_components/angular-i18n/angular-locale_en.js",
+  "bower_components/angular-i18n/angular-locale_es.js"
+]
