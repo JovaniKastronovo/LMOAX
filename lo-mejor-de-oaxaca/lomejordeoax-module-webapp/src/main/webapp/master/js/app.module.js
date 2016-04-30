@@ -20,6 +20,8 @@
             'app.core',
             'app.routes',
             'app.sidebar',
+            'app.navsearch',
+            'app.loadingbar',
             'app.translate',
             'app.settings',
             'app.dashboard',

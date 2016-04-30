@@ -11,10 +11,24 @@
     "alert": "3" ,
     "label": "label label-info", 
     "submenu": [
-      {"text": "Dashboard v1",       "sref": "app.dashboard"},
-      {"text": "Dashboard v2",       "sref": "app.dashboard_v2" },
-      {"text": "Dashboard v3",       "sref": "app.dashboard_v3" }
+      {"text": "Dashboard v1", "sref": "app.dashboard"}
     ],
     "translate": "sidebar.nav.DASHBOARD"
+  },
+  {
+    "text": "Operations",
+    "heading": "true",
+    "translate": "sidebar.heading.OPERATIONS"
+  },
+  {
+    "text": "Catalogs",
+    "sref": "#",
+    "icon": "fa fa-folder-open-o",
+    "submenu": [
+     {"text": "Products", "sref": "app.products", "translate": "sidebar.nav.catalog.PRODUCTS" },
+     {"text": "Customers", "sref": "#", "translate": "sidebar.nav.catalog.CUSTOMERS" },
+     {"text": "Providers", "sref": "#", "translate": "sidebar.nav.catalog.PROVIDERS" }
+    ],
+    "translate": "sidebar.nav.catalog.CATALOGS"
   }
 ]

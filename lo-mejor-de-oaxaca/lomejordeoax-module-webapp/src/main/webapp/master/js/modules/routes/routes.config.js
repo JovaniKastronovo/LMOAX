@@ -19,17 +19,27 @@
         $locationProvider.html5Mode(false);
 
         // defaults to dashboard
-        //$urlRouterProvider.otherwise('dashboard');
+        $urlRouterProvider.otherwise('/app/dashboard');
 
         //
         // Application Routes
         // -----------------------------------
-//        $stateProvider.state('dashboard', {
-//              url: '/dashboard',
-//              title: 'Dashboard',
-//              templateUrl: helper.basepath('dashboard.html'),
-//              resolve: helper.resolveFor('flot-chart','flot-chart-plugins', 'weather-icons')
-//          })
+        $stateProvider.state('app', {
+            url: '/app',
+            abstract: true,
+            templateUrl: 'app.html',
+            resolve: helper.resolveFor('modernizr','icons','screenfull')
+        })
+        .state('app.dashboard', {
+              url: '/dashboard',
+              title: 'Dashboard',
+              templateUrl: 'dashboard.html'              
+         })
+         .state('app.products', {
+             url: '/products',
+             title: 'Products',
+             templateUrl: 'products.html'
+        })
           
           //
           // CUSTOM RESOLVES

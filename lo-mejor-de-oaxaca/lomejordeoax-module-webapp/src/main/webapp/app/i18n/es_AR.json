@@ -32,76 +32,21 @@
       "TASK_COMPLETION": "Tareas completas",
       "QUOTA": "Limite de subida"
     }
-  },
+  },  
   "sidebar": {
     "WELCOME": "Bienvenido",
     "heading": {
       "HEADER": "Navegacion principal",
-      "COMPONENTS": "Componentes",
-      "MORE": "Aun Mas"
+      "OPERATIONS": "Operaciones",
+      "MORE": "Mas..."
     },
     "nav": {
-      "DASHBOARD": "Panel",
-      "WIDGETS": "Widgets",
-      "DOCUMENTATION": "Documentación",
-      "element": {
-        "ELEMENTS": "Elementos",
-        "BUTTON": "Boton",
-        "COLOR": "Colores",
-        "NOTIFICATION": "Notificaciones",
-        "INTERACTION": "Interacciones",
-        "SPINNER": "Indicadores",
-        "ANIMATION": "Animacion",
-        "DROPDOWN": "Desplegables",
-        "PANEL": "Paneles",
-        "PORTLET": "Portlet",
-        "GRID": "Grilla",
-        "GRID_MASONRY": "Grilla Masonry",
-        "TYPO": "Tipografia",
-        "FONT_ICON": "Iconos",
-        "WEATHER_ICON": "Iconos de clima"
-      },
-      "form": {
-        "FORM": "Formularios",
-        "STANDARD": "Standard",
-        "EXTENDED": "Extendido",
-        "VALIDATION": "Validacion",
-        "WIZARD": "Asistente",
-        "UPLOAD": "Subida"
-      },
-      "chart": {
-        "CHART": "Graficos",
-        "FLOT": "Flot",
-        "RADIAL": "Radiales"
-      },
-      "table": {
-        "TABLE": "Tablas",
-        "STANDARD": "Standard",
-        "EXTENDED": "Extendida",
-        "DATATABLE": "Datatable"
-      },
-      "map": {
-        "MAP": "Maps",
-        "GOOGLE": "Mapa Google",
-        "VECTOR": "Mapa Vectorial"
-      },
-      "extra": {
-        "EXTRA": "Extras",
-        "MAILBOX": "Email",
-        "TIMELINE": "Linea de Tiempo",
-        "CALENDAR": "Calendario",
-        "INVOICE": "Factura",
-        "SEARCH": "Busqueda",
-        "TODO": "Lista Todo",
-        "PROFILE": "Perfil"
-      },
-      "pages": {
-        "PAGES": "Paginas",
-        "LOGIN": "Ingreso",
-        "REGISTER": "Registro",
-        "RECOVER": "Recuperar contraseña",
-        "LOCK": "Bloqueo",
-        "STARTER": "Plantilla en blanco"
+      "DASHBOARD": "Dashboard",
+      "catalog": {
+      	"CATALOGS": "Catalogos",
+      	"PRODUCTS": "Productos",
+      	"CUSTOMERS": "Clientes",
+      	"PROVIDERS": "Proveedores"
       }
     }
   }

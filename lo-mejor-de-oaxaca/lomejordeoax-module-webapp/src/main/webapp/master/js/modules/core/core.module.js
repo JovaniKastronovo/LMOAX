@@ -7,7 +7,10 @@
             'ngStorage',
             'ui.router',
             'oc.lazyLoad',
+            'cfp.loadingBar',
+            'ngSanitize',
             'pascalprecht.translate',
+            'ui.bootstrap',
             'tmh.dynamicLocale',
             'ngCookies'
         ]);

@@ -11,6 +11,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -18,8 +19,19 @@ public class DashboardCtrl {
 
     protected final Log logger = LogFactory.getLog(getClass());
 
-    @RequestMapping(value="/dashboard.html")
+    @RequestMapping(value="/app.html")
     public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        String now = (new Date()).toString();
+        logger.info("Returning hello view with " + now);
+
+        return new ModelAndView("app", "now", now);
+
+    }
+    
+    @RequestMapping(value="/dashboard.html", method = RequestMethod.GET)
+    public ModelAndView dashboard(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         String now = (new Date()).toString();

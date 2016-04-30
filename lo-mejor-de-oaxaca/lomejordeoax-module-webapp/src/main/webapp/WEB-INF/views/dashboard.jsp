@@ -1,48 +1,20 @@
 <%@ include file="/WEB-INF/views/include.jsp" %>
-<!DOCTYPE html>
-<html lang="en" data-ng-app="angle">
-
-<head>
-   <meta charset="utf-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-   <meta name="description" content="{{app.description}}">
-   <meta name="keywords" content="app, responsive, angular, bootstrap, dashboard, admin">
-   <title data-ng-bind="::pageTitle()">Point of Sale</title>
-   <!-- Bootstrap styles-->
-   <link rel="stylesheet" href="app/css/bootstrap.css" data-ng-if="!app.layout.isRTL">
-   <!-- Application styles-->
-   <link rel="stylesheet" href="app/css/app.css" data-ng-if="!app.layout.isRTL">
-   <!-- Themes-->
-   <link rel="stylesheet" data-ng-href="{{app.layout.theme}}" data-ng-if="app.layout.theme">
-</head>
-
-<body data-ng-class="{ 'layout-fixed' : app.layout.isFixed, 'aside-collapsed' : app.layout.isCollapsed, 'layout-boxed' : app.layout.isBoxed, 'layout-fs': app.useFullLayout, 'hidden-footer': app.hiddenFooter, 'layout-h': app.layout.horizontal, 'aside-float': app.layout.isFloat, 'offsidebar-open': app.offsidebarOpen, 'aside-toggled': app.asideToggled}">
-   
-   <div data-ui-view="" data-autoscroll="false" class="wrapper">
-   		<!-- top navbar-->
-		<header class="topnavbar-wrapper">
-			<%@ include file="/WEB-INF/views/partials/top-navbar.jsp" %>
-		</header>
-		<!-- sidebar-->
-		<aside data-ng-controller="SidebarController" class="aside">
-			<%@ include file="/WEB-INF/views/partials/sidebar.jsp" %>
-		</aside>
-		<!-- offsidebar-->
-		<aside class="offsidebar">
-			<%@ include file="/WEB-INF/views/partials/offsidebar.jsp" %>
-		</aside>
-		<!-- Main section-->
-		<section>
-		   <!-- Page content-->
-		   <div ui-view="" autoscroll="false" ng-class="app.viewAnimation" class="content-wrapper"></div>
-		</section>
-		<!-- Page footer-->
-		<footer>
-			<%@ include file="/WEB-INF/views/partials/footer.jsp" %>
-		</footer>
+<h3>
+   <!-- START Language list-->
+   <div class="pull-right">
+      <div uib-dropdown="" is-open="language.listIsOpen" class="btn-group">
+         <button type="button" uib-dropdown-toggle="" class="btn btn-default">{{language.selected}}
+            <span class="caret"></span>
+         </button>
+         <ul role="menu" class="dropdown-menu dropdown-menu-right animated fadeInUpShort">
+            <li ng-repeat="(localeId, langName) in language.available"><a ng-click="language.set(localeId, $event)" href="#">{{langName}}</a>
+            </li>
+         </ul>
+      </div>
    </div>
-   <script src="app/js/base.js"></script>
-   <script src="app/js/app.js"></script>
-</body>
-
-</html>
+   <!-- END Language list    -->
+   Dashboard
+   <small>{{ 'dashboard.WELCOME' | translate:{ appName: app.name } }} !</small>
+</h3>
+<h1>Dashboard Content HERE</h1>
+<p>Greetings, it is now <c:out value="${now}"/></p>

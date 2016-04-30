@@ -98,12 +98,12 @@ gulp.task('vendor:base', function() {
             .pipe($.concat(vendor.base.js))
             .pipe($.if(isProduction, $.uglify()))
             .pipe(gulp.dest(build.scripts))
-        .pipe(jsFilter.restore())
+        .pipe(jsFilter.restore)
         .pipe(cssFilter)
             .pipe($.concat(vendor.base.css))
             .pipe($.if(isProduction, $.cssnano(cssnanoOpts)))
             .pipe(gulp.dest(build.styles))
-        .pipe(cssFilter.restore())
+        .pipe(cssFilter.restore)
         ;
 });
 
@@ -124,10 +124,10 @@ gulp.task('vendor:app', function() {
         .pipe($.expectFile(vendor.app.source))
         .pipe(jsFilter)
         .pipe($.if(isProduction, $.uglify(vendorUglifyOpts)))
-        .pipe(jsFilter.restore())
+        .pipe(jsFilter.restore)
         .pipe(cssFilter)
         .pipe($.if(isProduction, $.cssnano(cssnanoOpts)))
-        .pipe(cssFilter.restore())
+        .pipe(cssFilter.restore)
         .pipe(gulp.dest(vendor.app.dest));
 
 });
