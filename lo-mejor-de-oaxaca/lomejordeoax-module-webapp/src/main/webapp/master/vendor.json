@@ -4,5 +4,9 @@
   "bower_components/fontawesome/fonts/*",
   "bower_components/simple-line-icons/css/simple-line-icons.css",
   "bower_components/simple-line-icons/fonts/*",
-  "bower_components/screenfull/dist/screenfull.js"
+  "bower_components/screenfull/dist/screenfull.js",
+  "bower_components/datatables/media/css/jquery.dataTables.css",
+  "bower_components/datatables/media/js/jquery.dataTables.js",
+  "bower_components/datatables/media/images/**/*",
+  "bower_components/angular-datatables/dist/angular-datatables.js"
 ]

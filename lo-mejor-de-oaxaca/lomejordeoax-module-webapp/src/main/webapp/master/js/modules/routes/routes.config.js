@@ -28,7 +28,7 @@
             url: '/app',
             abstract: true,
             templateUrl: 'app.html',
-            resolve: helper.resolveFor('modernizr','icons','screenfull')
+            resolve: helper.resolveFor('modernizr','icons','screenfull','datatables')
         })
         .state('app.dashboard', {
               url: '/dashboard',

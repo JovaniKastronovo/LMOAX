@@ -12,7 +12,9 @@
               'screenfull':         ['vendor/screenfull/dist/screenfull.js']
           },
           // Angular based script (use the right module name)
-          modules: []
+          modules: [{name: 'datatables',                files: ['vendor/datatables/media/css/jquery.dataTables.css',
+                                                                'vendor/datatables/media/js/jquery.dataTables.js',
+                                                                'vendor/angular-datatables/dist/angular-datatables.js'], serie: true}]
         })
         ;
 
