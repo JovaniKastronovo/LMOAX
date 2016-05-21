@@ -36,6 +36,7 @@
     "screenfull": "^3.0.0",
     "angular-sanitize": "^1.5.5",
     "angular-datatables": "^0.5.4",
-    "datatables": "^1.10.11"
+    "datatables": "^1.10.11",
+    "ng-dialog": "^0.6.1"
   }
 }

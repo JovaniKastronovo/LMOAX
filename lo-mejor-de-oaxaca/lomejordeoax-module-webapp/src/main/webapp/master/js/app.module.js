@@ -25,6 +25,7 @@
             'app.translate',
             'app.settings',
             'app.dashboard',
+            'app.products',
             'app.locale',
             'app.utils'
         ]);

@@ -8,5 +8,8 @@
   "bower_components/datatables/media/css/jquery.dataTables.css",
   "bower_components/datatables/media/js/jquery.dataTables.js",
   "bower_components/datatables/media/images/**/*",
-  "bower_components/angular-datatables/dist/angular-datatables.js"
+  "bower_components/angular-datatables/dist/angular-datatables.js",
+  "bower_components/ng-dialog/js/ngDialog.min.js",
+  "bower_components/ng-dialog/css/ngDialog.min.css",
+  "bower_components/ng-dialog/css/ngDialog-theme-default.min.css"
 ]

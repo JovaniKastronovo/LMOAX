@@ -28,7 +28,7 @@
             url: '/app',
             abstract: true,
             templateUrl: 'app.html',
-            resolve: helper.resolveFor('modernizr','icons','screenfull','datatables')
+            resolve: helper.resolveFor('modernizr','icons','screenfull','datatables','ngDialog')
         })
         .state('app.dashboard', {
               url: '/dashboard',
@@ -38,8 +38,12 @@
          .state('app.products', {
              url: '/products',
              title: 'Products',
-             templateUrl: 'products.html'
-        })
+             templateUrl: 'products.html',
+             resolve : angular.extend(helper.resolveFor(),{
+            	 tpl: function() { return { path: helper.basepath('product-form.html') }; }
+             }),
+             controller : 'ProductsCtrl' 
+         })
           
           //
           // CUSTOM RESOLVES
