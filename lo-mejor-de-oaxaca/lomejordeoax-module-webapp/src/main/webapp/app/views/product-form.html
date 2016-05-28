@@ -1,14 +1,153 @@
-<h2>Native Angular.js solution</h2>
-<p>With ngDialog you don't need jQuery or Bootstrap to create dialogs for<code>ng-app:</code>
-</p>
-<ul>
-   <li>Use it in controllers, factories or directives</li>
-   <li>Create your own directives</li>
-   <li>Style all UI and templates</li>
-   <li>Configure themes</li>
-   <li>Add animations and effects</li>
-</ul>
-<p class="mt">Module is shipped with both<code>ngDialog</code>service and default directive.</p>
-<div class="text-center">
-   <button type="button" ng-click="closeThisDialog(0)" class="btn btn-info btn-large">Ok, Got It!</button>
-</div>
+<uib-tabset active="active">
+	<uib-tab heading="Datos">
+		<div class="row">
+			<div class="col-lg-4">
+		  		<div class="form-group">
+		  			<label>Clave</label>
+		    		<input type="text" class="form-control" placeholder="Clave del producto">
+		  		</div>		 	
+		  	</div>
+		  	<div class="col-lg-6">
+		  		<div class="form-group">
+			  		<label>Nombre</label>
+			    	<input type="text" class="form-control" placeholder="Nombre del producto">
+		    	</div>
+		  	</div>
+		  	<div class="col-lg-2">
+		  		<div class="form-group">
+			  		<label>Servicio</label>
+			  		<div class="input-group">
+				  		<div class="col-sm-10">
+			        		<label class="switch">
+			             		<input type="checkbox" checked="checked" />
+			            		<span></span>
+			            	</label>
+		            	</div>
+	            	</div>
+		  		</div>		  		
+		  	</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-4">
+				<div class="form-group">
+					<label>Categoria</label>
+					<select class="form-control">					
+					</select>
+				</div>
+			</div>
+			<div class="col-lg-8">
+				<div class="form-group">
+					<label>Departamento</label>
+					<select class="form-control">								
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-4">
+				<div class="form-group">
+					<label>Unidad de compra</label>
+					<select class="form-control">					
+					</select>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="form-group">
+					<label>Unidad de venta</label>
+					<select class="form-control">								
+					</select>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="form-group">
+					<label>Factor</label>
+					<input type="number" class="form-control" />
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-4">
+				<div class="form-group">
+					<label>Inventario Minimo</label>
+					<input type="text" class="form-control" placeholder="Inventario Minimo">
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="form-group">
+					<label>Inventario Maximo</label>
+					<input type="text" class="form-control" placeholder="Inventario Maximo">
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="form-group">
+					<label>Localizacion</label>
+					<input type="text" class="form-control" placeholder="Inventario Maximo">
+				</div>
+			</div>
+		</div>		
+		<div class="row"> 
+			<div class="col-lg-12">
+				<div class="form-group">				
+					<label>Impuestos</label>
+					<select class="form-control"></select>
+				</div>
+			</div>
+		</div>
+		<div class="row"> 
+			<div class="col-lg-4">
+				<div class="form-group">
+					<label>Precio de compra</label>
+					<div class="input-group">
+                    	<input type="text" class="form-control" placeholder="0.00" />
+                     	<span class="input-group-addon">X PZA</span>
+                  	</div>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="form-group">
+					<label>Precio Neto?</label>
+					<div class="input-group">
+                    	<div class="col-sm-10">
+		        			<label class="switch">
+		             			<input type="checkbox" checked="checked" />
+		            			<span></span>
+		            		</label>
+	            		</div>
+                  	</div>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="form-group">
+					<label>Pre. promedio de compra</label>
+					<div class="input-group">
+						<span>$15.26</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-8">
+				<div class="form-group">
+					<label>Precio de compra sin impuestos</label><br>
+					<span>$15.23 X PZA </span><span>$15.23 X PZA</span>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="form-group">
+					<label>Compra prom. sin imp.</label>
+					<span>$0.00 X PZA</span> <span>$0.00 X PZA</span>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			
+		</div>
+	</uib-tab>
+	<uib-tab heading="Precios">
+		
+	</uib-tab>
+	<uib-tab heading="Descripcion">
+	</uib-tab>
+	<uib-tab heading="Adicional">
+	</uib-tab>
+</uib-tabset>

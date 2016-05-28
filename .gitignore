@@ -1,10 +1,9 @@
 #Eclipse
 .classpath
-.project
 .settings/
 target/
 node_modules/
 bower_components/
 vendor/
-js/
+/lo-mejor-de-oaxaca/lomejordeoax-module-webapp/src/main/webapp/app/js
 .bowerrc

@@ -11268,3 +11268,6 @@ flatdoc .button .badge {
   color: #23b7e5;
   background-color: #ffffff;
 }
+.ngdialog.dialogwidth .ngdialog-content{
+width : 601px !important;
+}

@@ -1,4 +1,3 @@
-
 <h3>
  <button type="button" class="btn btn-primary pull-right" data-ng-controller="ProductsMainCtrl" data-ng-click="productModal()">
       <em class="fa icon-plus fa-lg mr-sm"></em>Add product</button>Products
