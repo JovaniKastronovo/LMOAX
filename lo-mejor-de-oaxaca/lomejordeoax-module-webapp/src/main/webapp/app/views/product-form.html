@@ -46,28 +46,6 @@
 		<div class="row">
 			<div class="col-lg-4">
 				<div class="form-group">
-					<label>Unidad de compra</label>
-					<select class="form-control">					
-					</select>
-				</div>
-			</div>
-			<div class="col-lg-4">
-				<div class="form-group">
-					<label>Unidad de venta</label>
-					<select class="form-control">								
-					</select>
-				</div>
-			</div>
-			<div class="col-lg-4">
-				<div class="form-group">
-					<label>Factor</label>
-					<input type="number" class="form-control" />
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-lg-4">
-				<div class="form-group">
 					<label>Inventario Minimo</label>
 					<input type="text" class="form-control" placeholder="Inventario Minimo">
 				</div>
@@ -84,70 +62,148 @@
 					<input type="text" class="form-control" placeholder="Inventario Maximo">
 				</div>
 			</div>
-		</div>		
-		<div class="row"> 
+		</div>
+		<div class="row">
 			<div class="col-lg-12">
-				<div class="form-group">				
-					<label>Impuestos</label>
-					<select class="form-control"></select>
+				<div class="form-group">
+					<label>Cuenta predial</label>
+					<input type="text" class="form-control" placeholder="Cta predial">
 				</div>
 			</div>
 		</div>
+		<div class="row">
+			<div class="col-lg-4">
+				<div class="checkbox c-checkbox">
+                	<label>
+                 	<input type="checkbox" checked="" />
+                 	<span class="fa fa-check"></span>Lote</label>
+               	</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="checkbox c-checkbox">
+                	<label>
+                 	<input type="checkbox" checked="" />
+                 	<span class="fa fa-check"></span>Receta</label>
+               	</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="checkbox c-checkbox">
+                	<label>
+                 	<input type="checkbox" checked="" />
+                 	<span class="fa fa-check"></span>Granel</label>
+               	</div>
+			</div>
+		</div>				
+	</uib-tab>
+	<uib-tab heading="Precios">
+		<div class="row"> 
+			<div class="col-lg-12">				
+				<label>Impuestos</label>
+				<select class="form-control"></select>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-4">
+				<label>Unidad de compra</label>
+				<select class="form-control"></select>
+			</div>
+			<div class="col-lg-4">
+				<label>Unidad de venta</label>
+				<select class="form-control"></select>
+			</div>
+			<div class="col-lg-4">
+				<label>Factor</label>
+				<input type="number" class="form-control" />
+			</div>
+		</div>		
 		<div class="row"> 
 			<div class="col-lg-4">
-				<div class="form-group">
-					<label>Precio de compra</label>
-					<div class="input-group">
-                    	<input type="text" class="form-control" placeholder="0.00" />
-                     	<span class="input-group-addon">X PZA</span>
-                  	</div>
-				</div>
+				<label>Precio de compra</label>
+				<div class="input-group">
+                   	<input type="text" class="form-control" placeholder="0.00" />
+                   	<span class="input-group-addon">X PZA</span>
+                </div>
 			</div>
 			<div class="col-lg-4">
-				<div class="form-group">
-					<label>Precio Neto?</label>
-					<div class="input-group">
-                    	<div class="col-sm-10">
-		        			<label class="switch">
-		             			<input type="checkbox" checked="checked" />
-		            			<span></span>
-		            		</label>
+				<label>Precio Neto?</label>
+				<div class="input-group">
+                   	<div class="col-sm-10">
+		        		<label class="switch">
+		        			<input type="checkbox" checked="checked" />
+		        			<span></span>
+		           		</label>
 	            		</div>
-                  	</div>
-				</div>
+                </div>
 			</div>
 			<div class="col-lg-4">
-				<div class="form-group">
-					<label>Pre. promedio de compra</label>
-					<div class="input-group">
-						<span>$15.26</span>
-					</div>
+				<label>Pre. promedio de compra</label>
+				<div class="input-group">
+					<span>$15.26</span>
 				</div>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-lg-8">
-				<div class="form-group">
-					<label>Precio de compra sin impuestos</label><br>
-					<span>$15.23 X PZA </span><span>$15.23 X PZA</span>
-				</div>
+				<label>Precio de compra sin impuestos</label><br>
+				<span>$15.23 X PZA </span><span>$15.23 X PZA</span>
 			</div>
 			<div class="col-lg-4">
-				<div class="form-group">
-					<label>Compra prom. sin imp.</label>
-					<span>$0.00 X PZA</span> <span>$0.00 X PZA</span>
-				</div>
+				<label>Compra prom. sin imp.</label>
+				<span>$0.00 X PZA</span> <span>$0.00 X PZA</span>
 			</div>
-		</div>
+		</div>		
 		<div class="row">
-			
+			<table class="table table-condensed">
+				<thead>
+					<tr>
+						<th style="width: 136px"></th>
+						<th>Precio 1</th>
+						<th>Precio 2</th>
+						<th>Precio 3</th>
+						<th>Precio 4</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Margen de utilidad %</td>
+						<td><input type="text" class="form-control input-sm" placeholder="00.00"></td>
+						<td><input type="text" class="form-control input-sm" placeholder="00.00"></td>
+						<td><input type="text" class="form-control input-sm" placeholder="00.00"></td>
+						<td><input type="text" class="form-control input-sm" placeholder="00.00"></td>
+					</tr>
+					<tr>
+						<td>Mayoreo</td>
+						<td><input type="text" class="form-control input-sm" placeholder="00.00"></td>
+						<td><input type="text" class="form-control input-sm" placeholder="00.00"></td>
+						<td><input type="text" class="form-control input-sm" placeholder="00.00"></td>
+						<td><input type="text" class="form-control input-sm" placeholder="00.00"></td>
+					</tr>
+					<tr>
+						<td>Precio de venta neto</td>
+						<td><input type="text" class="form-control input-sm" placeholder="00.00"></td>
+						<td><input type="text" class="form-control input-sm" placeholder="00.00"></td>
+						<td><input type="text" class="form-control input-sm" placeholder="00.00"></td>
+						<td><input type="text" class="form-control input-sm" placeholder="00.00"></td>
+					</tr>
+					<tr>
+						<td>Precio de venta</td>
+						<td><strong>$ 123.00</strong></td>
+						<td><strong>$ 123.00</strong></td>
+						<td><strong>$ 123.00</strong></td>
+						<td><strong>$ 123.00</strong></td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
-	</uib-tab>
-	<uib-tab heading="Precios">
-		
 	</uib-tab>
 	<uib-tab heading="Descripcion">
 	</uib-tab>
 	<uib-tab heading="Adicional">
-	</uib-tab>
+	</uib-tab>	
 </uib-tabset>
+<div class="row">
+	<div class="col-lg-12">
+		<button type="button" class="btn btn-default pull-right">General Clave</button>
+		<button type="button" class="btn btn-default pull-right">Guarda/Actualizar</button>		
+	</div>	
+</div>
