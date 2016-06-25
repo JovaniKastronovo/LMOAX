@@ -1,29 +1,54 @@
 <?xml version="1.0"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <modelVersion>4.0.0</modelVersion>
-  
-  <parent>
-    <groupId>com.lomejordeoax.mx</groupId>
-    <artifactId>lo-mejor-de-oaxaca</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-  </parent>
-  
-  <artifactId>lomejordeoax-module-dao</artifactId>
-  <name>lomejordeoax-module-dao</name>
-  <url>http://maven.apache.org</url>
-  
-  <dependencies>
-  	<dependency>
-  		<groupId>com.lomejordeoax.mx</groupId>
-    	<artifactId>lomejordeoax-module-model</artifactId>
-    	<version>0.0.1-SNAPSHOT</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>com.lomejordeoax.mx</groupId>
-    	<artifactId>lomejordeoax-module-utilities</artifactId>
-    	<version>0.0.1-SNAPSHOT</version>
-  	</dependency>
-  </dependencies>
-  
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.lomejordeoax.mx</groupId>
+		<artifactId>lo-mejor-de-oaxaca</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>lomejordeoax-module-dao</artifactId>
+	<name>lomejordeoax-module-dao</name>
+	<url>http://maven.apache.org</url>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.version}</version>
+		</dependency>	
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-c3p0</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>c3p0</groupId>
+			<artifactId>c3p0</artifactId>
+			<version>${c3p0.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.lomejordeoax.mx</groupId>
+			<artifactId>lomejordeoax-module-utilities</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
+
 </project>

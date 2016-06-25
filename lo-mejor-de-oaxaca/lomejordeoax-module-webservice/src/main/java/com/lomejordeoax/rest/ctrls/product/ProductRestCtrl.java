@@ -2,7 +2,10 @@ package com.lomejordeoax.rest.ctrls.product;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import org.lomejordeoax.model.product.Category;
+import org.lomejordeoax.model.product.Departament;
 import org.lomejordeoax.model.product.ProductSucursal;
 import org.lomejordeoax.model.to.common.ErrorMessage;
 import org.lomejordeoax.model.to.common.ErrorType;
@@ -55,6 +58,40 @@ public class ProductRestCtrl implements IController{
 			prodSucursal.getProduct().setCreated_date(new Date());
 			prodSucursal.getProduct().setModification_date(new Date());
 			productManager.saveProductSuc(prodSucursal);
+			return new ResponseEntity<MessageTO>(message,HttpStatus.OK);
+		} catch (BusinessException e) {
+			addErrorMessage(message, e.getMessage());
+			return new ResponseEntity<MessageTO>(message,HttpStatus.NOT_FOUND);
+		} catch (Exception e) {
+			addErrorMessage(message, e.getMessage());
+			return new ResponseEntity<MessageTO>(message,HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@RequestMapping(value="category/company/{companyId}",
+			method = RequestMethod.GET)
+	public ResponseEntity<MessageTO> categoryByCompany(@PathVariable("companyId") Integer companyId){
+		MessageTO message = new MessageTO();
+		try {
+			List<Category> catByCompany = productManager.getCategoryByCompany(companyId);
+			message.setObjectData(catByCompany);
+			return new ResponseEntity<MessageTO>(message,HttpStatus.OK);
+		} catch (BusinessException e) {
+			addErrorMessage(message, e.getMessage());
+			return new ResponseEntity<MessageTO>(message,HttpStatus.NOT_FOUND);
+		} catch (Exception e) {
+			addErrorMessage(message, e.getMessage());
+			return new ResponseEntity<MessageTO>(message,HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@RequestMapping(value="depto/company/{companyId}",
+			method = RequestMethod.GET)
+	public ResponseEntity<MessageTO> deptoByCompany(@PathVariable("companyId") Integer companyId){
+		MessageTO message = new MessageTO();
+		try {
+			List<Departament> deptoByCompany = productManager.getDeptoByCompany(companyId);
+			message.setObjectData(deptoByCompany);
 			return new ResponseEntity<MessageTO>(message,HttpStatus.OK);
 		} catch (BusinessException e) {
 			addErrorMessage(message, e.getMessage());

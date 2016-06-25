@@ -80,4 +80,14 @@ public class DepartamentServiceImp implements DepartamentService {
 			throw new BusinessException("The findAllDepto failed",e);
 		}
 	}
+
+	@Override
+	public List<Departament> getDeptoByCompany(Integer companyId)
+			throws BusinessException {
+		try {
+			return deptoDao.getDeptoByCompany(companyId);
+		} catch (DataException e) {
+			throw new BusinessException("The getDeptoByCompany failed",e);
+		}
+	}
 }

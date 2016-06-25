@@ -80,5 +80,12 @@ public class ProductManager{
 		}else
 			throw new BusinessException("Departament or category is null");
 	}
-
+	
+	public List<Category> getCategoryByCompany(Integer companyId)throws BusinessException{
+		return categoryService.getCategoryByCompany(companyId);
+	}
+	
+	public List<Departament> getDeptoByCompany(Integer companyId)throws BusinessException{
+		return deptoService.getDeptoByCompany(companyId);
+	}
 }

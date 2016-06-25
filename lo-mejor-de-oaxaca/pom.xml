@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.lomejordeoax.mx</groupId>
 	<artifactId>lo-mejor-de-oaxaca</artifactId>
@@ -12,11 +13,11 @@
 		<module>lomejordeoax-module-model</module>
 		<module>lomejordeoax-module-webservice</module>
 		<module>lomejordeoax-module-webapp</module>
-    <module>lomejordeoax-module-utilities</module>
-  </modules>
+		<module>lomejordeoax-module-utilities</module>
+	</modules>
 
 	<properties>
-		<spring.version>4.0.5.RELEASE</spring.version>
+		<spring.version>4.1.4.RELEASE</spring.version>
 		<hibernate.version>4.3.7.Final</hibernate.version>
 		<c3p0.version>0.9.1.2</c3p0.version>
 		<log4j.version>1.2.17</log4j.version>
@@ -25,7 +26,7 @@
 		<junit.version>4.12</junit.version>
 		<gson.version>2.2.2</gson.version>
 		<mysql.version>5.1.6</mysql.version>
-		<jackson.version>1.9.10</jackson.version>
+		<jackson.version>2.6.3</jackson.version>
 	</properties>
 
 	<build>
@@ -49,17 +50,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>spring-orm</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-jdbc</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-jdbc</artifactId>
+			<artifactId>spring-core</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
 		<dependency>
@@ -87,31 +78,23 @@
 			<artifactId>gson</artifactId>
 			<version>${gson.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>${mysql.version}</version>
-		</dependency>
+
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
 			<artifactId>jackson-mapper-asl</artifactId>
-			<version>${jackson.version}</version>
+			<version>1.9.13</version>
 		</dependency>
 		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>${hibernate.version}</version>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>2.5.1</version>
 		</dependency>
 		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-c3p0</artifactId>
-			<version>${hibernate.version}</version>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.5.1</version>
 		</dependency>
-		<dependency>
-			<groupId>c3p0</groupId>
-			<artifactId>c3p0</artifactId>
-			<version>${c3p0.version}</version>
-		</dependency>
+		
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>

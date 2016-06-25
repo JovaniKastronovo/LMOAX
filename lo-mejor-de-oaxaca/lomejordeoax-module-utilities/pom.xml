@@ -13,4 +13,12 @@
   <name>lomejordeoax-module-utilities</name>
   <url>http://maven.apache.org</url>
   
+  <dependencies>
+  	<dependency>
+  		<groupId>com.lomejordeoax.mx</groupId>
+    	<artifactId>lomejordeoax-module-model</artifactId>
+    	<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  </dependencies> 
+  
 </project>

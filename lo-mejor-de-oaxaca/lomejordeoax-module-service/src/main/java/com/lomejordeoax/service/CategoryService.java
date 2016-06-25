@@ -10,5 +10,6 @@ public interface CategoryService {
 	void updateCategory(Category updCategory)throws BusinessException;
 	Category findCatById(Integer catId)throws BusinessException;
 	List<Category> findAllCat()throws BusinessException;
+	List<Category> getCategoryByCompany(Integer companyId)throws BusinessException;
 	boolean deleteCategory(Integer categoryId)throws BusinessException;
 }

@@ -10,5 +10,6 @@ public interface DepartamentService {
 	void updateDepartament(Departament updDepto)throws BusinessException;
 	Departament findDeptoById(Integer deptoId)throws BusinessException;
 	List<Departament> findAllDepto()throws BusinessException;
+	List<Departament> getDeptoByCompany(Integer companyId)throws BusinessException;
 	boolean deleteDepto(Integer deptoId)throws BusinessException;
 }

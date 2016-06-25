@@ -79,4 +79,15 @@ public class CategoryServiceImp implements CategoryService {
 			throw new BusinessException("The findAllCat() failed",e);
 		}
 	}
+
+	@Transactional(readOnly = true)
+	@Override
+	public List<Category> getCategoryByCompany(Integer companyId)
+			throws BusinessException {
+		try {
+			return categoryDao.getCategoryByCompany(companyId);
+		} catch (DataException e) {
+			throw new BusinessException("The getCategoryByCompany() failed",e);
+		}
+	}
 }
