@@ -17,7 +17,7 @@ public class ProductTaxesDaoImp extends  HGenericDaoImp<ProductTaxes, Integer>
 	private static final String TAXES_BY_PROD_ID_HQL = "from ProductTaxes pt where pt.product_id = ?";
 
 	@Override
-	public List<ProductTaxes> findTaxesByProdId(String productId) throws DataException {
+	public List<ProductTaxes> findTaxesByProdId(Integer productId) throws DataException {
 		List<?> result= getHibernateTemplate().find(TAXES_BY_PROD_ID_HQL, productId);
 		return ((List<ProductTaxes>) result);
 	}	

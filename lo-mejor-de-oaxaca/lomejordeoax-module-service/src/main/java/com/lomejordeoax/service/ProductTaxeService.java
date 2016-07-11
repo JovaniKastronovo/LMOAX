@@ -9,5 +9,5 @@ public interface ProductTaxeService{
 	void saveProdTax(ProductTaxes prodTaxes)throws BusinessException;
 	void updProdTax(ProductTaxes prodTaxes)throws BusinessException;
 	boolean deleteProdTax(Integer prodTaxId)throws BusinessException;
-	List<ProductTaxes>findTaxesByProdId(String productId)throws BusinessException;
+	List<ProductTaxes>findTaxesByProdId(Integer productId)throws BusinessException;
 }
