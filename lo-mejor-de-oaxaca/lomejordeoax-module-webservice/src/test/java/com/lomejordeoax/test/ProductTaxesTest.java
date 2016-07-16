@@ -19,7 +19,7 @@ import com.lomejordeoax.service.ProductTaxeService;
 @ContextConfiguration(locations={"classpath:spring-config.xml"})
 public class ProductTaxesTest {
 
-	private static String PRODUCT_ID = "ABALAC8";
+	private static Integer PRODUCT_ID = 1;
 	private static Integer TAXE_ID = 1;
 	
 	@Autowired

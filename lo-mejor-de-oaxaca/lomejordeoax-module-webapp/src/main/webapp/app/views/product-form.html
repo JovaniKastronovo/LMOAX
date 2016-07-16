@@ -19,7 +19,7 @@
 			  		<div class="input-group">
 				  		<div class="col-sm-10">
 			        		<label class="switch">
-			             		<input type="checkbox" checked="checked" />
+			             		<input type="checkbox" />
 			            		<span></span>
 			            	</label>
 		            	</div>
@@ -36,9 +36,17 @@
 					</select>
 				</div>
 			</div>
-			<div class="col-lg-8">
+			<div class="col-lg-4">
 				<div class="form-group">
 					<label>Departamento</label>
+					<select class="form-control" data-ng-model = "product.depatamentId">
+						<option data-ng-repeat="dep in prod.deptos" value="dep.departament_id">{{dep.name}}</option>					
+					</select>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="form-group">
+					<label>Proveedor</label>
 					<select class="form-control" data-ng-model = "product.depatamentId">
 						<option data-ng-repeat="dep in prod.deptos" value="dep.departament_id">{{dep.name}}</option>					
 					</select>
@@ -77,21 +85,21 @@
 			<div class="col-lg-4">
 				<div class="checkbox c-checkbox">
                 	<label>
-                 	<input type="checkbox" checked="" />
+                 	<input type="checkbox" />
                  	<span class="fa fa-check"></span>Lote</label>
                	</div>
 			</div>
 			<div class="col-lg-4">
 				<div class="checkbox c-checkbox">
                 	<label>
-                 	<input type="checkbox" checked="" />
+                 	<input type="checkbox" />
                  	<span class="fa fa-check"></span>Receta</label>
                	</div>
 			</div>
 			<div class="col-lg-4">
 				<div class="checkbox c-checkbox">
                 	<label>
-                 	<input type="checkbox" checked="" />
+                 	<input type="checkbox" />
                  	<span class="fa fa-check"></span>Granel</label>
                	</div>
 			</div>
@@ -155,48 +163,42 @@
 			</div>
 		</div>		
 		<div class="row">
-			<table class="table table-condensed">
-				<thead>
-					<tr>
-						<th style="width: 136px"></th>
-						<th>Precio 1</th>
-						<th>Precio 2</th>
-						<th>Precio 3</th>
-						<th>Precio 4</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>Margen de utilidad %</td>
-						<td><input type="text" class="form-control input-sm" placeholder="00.00"></td>
-						<td><input type="text" class="form-control input-sm" placeholder="00.00"></td>
-						<td><input type="text" class="form-control input-sm" placeholder="00.00"></td>
-						<td><input type="text" class="form-control input-sm" placeholder="00.00"></td>
-					</tr>
-					<tr>
-						<td>Mayoreo</td>
-						<td><input type="text" class="form-control input-sm" placeholder="00.00"></td>
-						<td><input type="text" class="form-control input-sm" placeholder="00.00"></td>
-						<td><input type="text" class="form-control input-sm" placeholder="00.00"></td>
-						<td><input type="text" class="form-control input-sm" placeholder="00.00"></td>
-					</tr>
-					<tr>
-						<td>Precio de venta neto</td>
-						<td><input type="text" class="form-control input-sm" placeholder="00.00"></td>
-						<td><input type="text" class="form-control input-sm" placeholder="00.00"></td>
-						<td><input type="text" class="form-control input-sm" placeholder="00.00"></td>
-						<td><input type="text" class="form-control input-sm" placeholder="00.00"></td>
-					</tr>
-					<tr>
-						<td>Precio de venta</td>
-						<td><strong>$ 123.00</strong></td>
-						<td><strong>$ 123.00</strong></td>
-						<td><strong>$ 123.00</strong></td>
-						<td><strong>$ 123.00</strong></td>
-					</tr>
-				</tbody>
-			</table>
+			<div class="col-lg-12">
+				<label>Precios activos para este producto (+ Agregar)</label><br>
+				<div class="btn-group">
+	               <label 	data-ng-repeat="p in prod.prices" 
+	               			data-ng-model="prod.price" 
+	               			data-uib-btn-radio="{{$index}}" 
+	               			class="btn btn-default"
+	               			data-ng-click="prod.activePrice($index)">
+	               			Precio {{$index + 1}}
+	               	</label>
+	               <label class="btn btn-default" data-ng-click="prod.addNewPrice()" >
+	               		<em class="fa icon-plus fa-lg mr-sm"></em>
+	               </label>
+	            </div>
+            </div>
 		</div>
+		<div class="row">
+			<div class="col-lg-4">
+				<label>Margen de utilidad %</label>
+				<input data-ng-model="prod.pSelected.mUtilidad" type="text" class="form-control" placeholder="0.00">
+			</div>
+			<div class="col-lg-2">
+				<label>Mayoreo</label>
+				<input data-ng-model="prod.pSelected.mayoreo" type="text" class="form-control" placeholder="0.00">
+			</div>
+			<div class="col-lg-3">
+				<label>Venta neto</label>
+				<input data-ng-model="prod.pSelected.vNeto" type="text" class="form-control" placeholder="0.00">
+			</div>
+			<div class="col-lg-3">
+				<label>Precio de venta</label>
+				<div class="input-group">
+					<span>$15.26</span>
+				</div>
+			</div>
+		</div>		
 	</uib-tab>
 	<uib-tab heading="Descripcion">
 		<div class="row">

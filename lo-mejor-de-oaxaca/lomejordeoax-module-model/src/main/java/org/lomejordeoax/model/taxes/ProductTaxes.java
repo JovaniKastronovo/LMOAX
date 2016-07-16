@@ -24,7 +24,7 @@ public class ProductTaxes implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer product_taxe_id;
 	@Column
-	private String product_id;	
+	private Integer product_id;	
 	@ManyToOne
 	@JoinColumn(name="tax_id")
 	private Taxes taxes;	
@@ -37,10 +37,10 @@ public class ProductTaxes implements Serializable {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date modification_date;	
 	
-	public String getProduct_id() {
+	public Integer getProduct_id() {
 		return product_id;
 	}
-	public void setProduct_id(String product_id) {
+	public void setProduct_id(Integer product_id) {
 		this.product_id = product_id;
 	}
 	public Taxes getTaxes() {

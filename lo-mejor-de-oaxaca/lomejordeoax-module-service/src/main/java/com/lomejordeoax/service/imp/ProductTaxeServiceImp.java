@@ -57,7 +57,7 @@ public class ProductTaxeServiceImp implements ProductTaxeService{
 	}
 
 	@Override
-	public List<ProductTaxes> findTaxesByProdId(String productId)
+	public List<ProductTaxes> findTaxesByProdId(Integer productId)
 			throws BusinessException {
 		try {
 			return productTaxesDao.findTaxesByProdId(productId);

@@ -12,10 +12,9 @@ import org.lomejordeoax.model.product.Category;
 import org.lomejordeoax.model.product.Departament;
 import org.lomejordeoax.model.to.common.MessageTO;
 import org.lomejordeoax.utilities.commons.Util;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -24,7 +23,7 @@ import com.lomejordeoax.ctrls.exceptions.EmptyReponseException;
 import com.lomejordeoax.ctrls.exceptions.ErrorMessageRespException;
 
 @SuppressWarnings("unchecked")
-@Controller
+@RestController
 public class ProductCtrl implements IFrontController{
 	
 	private static String SERVICE_CONTEXT = "http://localhost:8080/lomejordeoax-module-webservice/";	
@@ -33,14 +32,13 @@ public class ProductCtrl implements IFrontController{
 	private static String DEPTO_BY_COMPANY_SERV = SERVICE_CONTEXT + "product/depto/company/{companyId}";
 
 	@RequestMapping(value = "/product/newId.html", method = RequestMethod.GET)
-	public @ResponseBody String getNextProdId(){
+	public String getNextProdId(){
 		RestTemplate resTemp = new RestTemplate();
 		MessageTO messageTo = resTemp.getForObject(NEXT_PRODUCT_ID_SERV, MessageTO.class, 1, 1, 1);
 		validateResponse(messageTo);
 		return (String) messageTo.getObjectData();
 	}		
 	
-	@ResponseBody
 	@RequestMapping(value = "/product/categories.json", method = RequestMethod.GET)
 	public List<Category> categoryByCompany(){	
 		RestTemplate resTemp = new RestTemplate();
@@ -50,7 +48,7 @@ public class ProductCtrl implements IFrontController{
 	}
 	
 	@RequestMapping(value = "/product/deptos.json", method = RequestMethod.GET)
-	public @ResponseBody List<Departament> deptoByCompany(){
+	public List<Departament> deptoByCompany(){
 		RestTemplate resTemp = new RestTemplate();
 		MessageTO messageTo = resTemp.getForObject(DEPTO_BY_COMPANY_SERV, MessageTO.class, 1);		
 		validateResponse(messageTo);

@@ -22,7 +22,7 @@ public class ProductPhotos implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer product_photos_id;
 	@Column
-	private String product_id;
+	private Integer product_id;
 	@Column
 	private String path;
 	@Column
@@ -40,10 +40,10 @@ public class ProductPhotos implements Serializable {
 	public void setProduct_photos_id(Integer product_photos_id) {
 		this.product_photos_id = product_photos_id;
 	}
-	public String getProduct_id() {
+	public Integer getProduct_id() {
 		return product_id;
 	}
-	public void setProduct_id(String product_id) {
+	public void setProduct_id(Integer product_id) {
 		this.product_id = product_id;
 	}
 	public String getPath() {

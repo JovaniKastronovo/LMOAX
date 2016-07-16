@@ -26,7 +26,7 @@
         }
         
         function getCategories(){
-        	return $http.get("product/categories.html")
+        	return $http.get("product/categories.json")
 					.then(function(response){
 						return response.data;
 					}, function(errorResp){
@@ -36,7 +36,7 @@
         }
  
         function getDeptos(){
-        	return $http.get("product/deptos.html")
+        	return $http.get("product/deptos.json")
 					.then(function(response){
 						return response.data;
 					}, function(errorResp){

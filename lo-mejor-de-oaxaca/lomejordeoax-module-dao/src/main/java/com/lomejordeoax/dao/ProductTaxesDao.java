@@ -8,5 +8,5 @@ import org.lomejordeoax.utilities.exceptions.DataException;
 import com.lomejordeoax.dao.generic.HGenericDao;
 
 public interface ProductTaxesDao extends HGenericDao<ProductTaxes,Integer> {
-	List<ProductTaxes> findTaxesByProdId(String productId) throws DataException;
+	List<ProductTaxes> findTaxesByProdId(Integer productId) throws DataException;
 }
